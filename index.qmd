@@ -20,7 +20,6 @@ While football has remained one of the most watched sports for some time, the po
 In conclusion, PCA is a powerful statistical method for reducing the dimensionality of multivariate data and identifying the most significant factors that contribute to the variance in the data. This literature review demonstrated the wide range of applications of PCA in various fields, including remote sensing, public health, sports, and finance. PCA can be a useful tool for summarizing complex data, identifying the most important factors that contribute to the outcomes of interest, and providing insights for decision-making.
 
 
-
 ## Methods
 
 ## Analysis and Results
