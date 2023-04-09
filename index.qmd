@@ -28,7 +28,12 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 
 ## Analysis and Results
 
+
+
 ### Data and Vizualisation
+
+our_data = read.csv("C:/Users/curti/OneDrive/Desktop/Data Science MS/Adv Stats Modeling/PCA Project docs/NFL.csv")
+summary(our_data)  
 
 ### Statistical Modeling
 
