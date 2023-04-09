@@ -46,8 +46,7 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 
 ### Data and Vizualisation
 
-our_data = read.csv("C:/Users/curti/OneDrive/Desktop/Data Science MS/Adv Stats Modeling/PCA Project docs/NFL.csv")
-
+our_data = read.csv("https://github.com/admuwf/STA6257_Project_PCA/blob/main/STA%206257%20NFL%20Data.xlsx")
 summary(our_data)
 
 colSums(is.na(our_data)) #returns missing values of each column
