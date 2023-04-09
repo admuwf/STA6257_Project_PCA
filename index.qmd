@@ -10,6 +10,20 @@ bibliography: references.bib # file contains bibtex for references
 #always_allow_html: true # this allows to get PDF with HTML features
 ---
 
+## Packages
+install.packages("rlang")
+install.packages("ggplot2")
+library("ggplot2")
+install.packages("corrr")
+library('corrr')
+install.packages("ggcorrplot")
+library(ggcorrplot)
+install.packages("FactoMineR")
+library("FactoMineR")
+install.packages("factoextra")
+library("factoextra")
+
+
 ## Introduction
 Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data. The goal of PCA is to transform the original variables into a new set of uncorrelated variables called principal components. This literature review aims to explore the methods and applications of PCA used in previous data analysis. While we will review the use of PCA in several analytical fields, our use of PCA focuses on National Football League data. Our analysis can be found below.
 In the simplest terms, PCA acts to rotate the axis of different variables to better understand the variance in the data. The variables with the most important relationships are kept as they explain the most variance in the dataset. In this way PCA is used to decrease the dimensionality of a dataset. The first Principal component is calculated by adding the variables once they have been multiplied by a weighted value. The next Principal component is calculated using another variable as long as that variable is uncorrelated to the first. This continues until the number of Principal Components equals the number of variables or until you have reached a determined cutoff point (Holland 2008). The four options provided by Holland to be used as a cutoff point are if the increase of variance explained from one variable to the next is minimal. The second is to set a limit for variance explained, possibly 90%, and ignore all PCs after this limit is reached. The third is to use a correlation matrix and the variance is less than 1. Finally, the fourth, is to ignore the last PCs in the list if their variance explained is equal. In all cases the distribution of the variables data needs to be normally distributed for PCA to work correctly.
@@ -33,7 +47,53 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 ### Data and Vizualisation
 
 our_data = read.csv("C:/Users/curti/OneDrive/Desktop/Data Science MS/Adv Stats Modeling/PCA Project docs/NFL.csv")
-summary(our_data)  
+
+summary(our_data)
+
+colSums(is.na(our_data)) #returns missing values of each column
+
+our_data[is.na(our_data)] <- 0
+
+colSums(is.na(our_data)) #returns missing values of each column
+
+#next, only use numerical values
+numerical_data <- our_data[,2:51]
+head(numerical_data)
+data_normalized <- scale(numerical_data)#normalizes data using scale function
+head(data_normalized)
+
+corr_matrix <- cor(data_normalized)
+ggcorrplot(corr_matrix)
+
+data.pca <- princomp(corr_matrix) #PCA values
+summary(data.pca)
+#3 variables: StD, prop of var, cum prop of var for each principal component
+# prop of var shows how much var is explained by each PC
+
+data.pca$loadings[, 1:2] #this loading matrix explores the PC1 and PC2
+
+
+fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
+
+fviz_pca_var(data.pca, col.var = "black") #this biplot the impact of each attribute on each PC
+
+fviz_cos2(data.pca, choice = "var", axes = 1:2) #this shows the contribution of each variable in graph
+
+fviz_pca_var(data.pca, col.var = "cos2",
+            gradient.cols = c("black", "orange", "green"),
+            repel = TRUE) #this shows a combination of the first 2 plots together. A biplot with each variables contribution
+
+#black=low cos2 attributes
+#orange=mid cos2 attributes
+#green=high cos2 attributes
+#better than the other fviz_pca_var graph... just use this
+
+# Find Top n principal component
+# which will atleast cover 90 % variance of dimension
+which(cumsum(our_data) >= 0.9)[1]
+
+FinalDataSet=Tr(FeatureVector)*Tr(StandardizedOriginalDataSet)
+
 
 ### Statistical Modeling
 
