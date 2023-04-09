@@ -10,19 +10,13 @@ bibliography: references.bib # file contains bibtex for references
 #always_allow_html: true # this allows to get PDF with HTML features
 ---
 
-## Packages
-install.packages("rlang")
-install.packages("ggplot2")
-library("ggplot2")
-install.packages("corrr")
-library('corrr')
-install.packages("ggcorrplot")
+```{r}
+library(ggplot2)
+library(corrr)
 library(ggcorrplot)
-install.packages("FactoMineR")
-library("FactoMineR")
-install.packages("factoextra")
-library("factoextra")
-
+library(FactoMineR)
+library(factoextra)
+```
 
 ## Introduction
 Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data. The goal of PCA is to transform the original variables into a new set of uncorrelated variables called principal components. This literature review aims to explore the methods and applications of PCA used in previous data analysis. While we will review the use of PCA in several analytical fields, our use of PCA focuses on National Football League data. Our analysis can be found below.
@@ -45,43 +39,49 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 
 
 ### Data and Vizualisation
+```{r}
+our_data = read.csv("NFL_Data.csv")
+```
 
-our_data = read.csv("https://github.com/admuwf/STA6257_Project_PCA/blob/main/STA%206257%20NFL%20Data.xlsx")
-summary(our_data)
-
-colSums(is.na(our_data)) #returns missing values of each column
-
+```{r}
+colSums(is.na(our_data))
 our_data[is.na(our_data)] = 0
-
-colSums(is.na(our_data)) #returns missing values of each column
-
-#next, only use numerical values
+colSums(is.na(our_data))
+```
+```{r}
 numerical_data = our_data[,2:51]
 head(numerical_data)
-data_normalized = scale(numerical_data)#normalizes data using scale function
+data_normalized = scale(numerical_data)
 head(data_normalized)
+```
 
+```{r}
 corr_matrix = cor(data_normalized)
-ggcorrplot(corr_matrix)
+```
 
-data.pca = princomp(corr_matrix) #PCA values
+```{r}
+ggcorrplot(corr_matrix)
+```
+
+```{r}
+data.pca = princomp(corr_matrix)
 summary(data.pca)
+```
 #3 variables: StD, prop of var, cum prop of var for each principal component
 # prop of var shows how much var is explained by each PC
-
-data.pca$loadings[, 1:2] #this loading matrix explores the PC1 and PC2
-
+```{r}
+data.pca$loadings[, 1:2]
 
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 
-fviz_pca_var(data.pca, col.var = "black") #this biplot the impact of each attribute on each PC
+fviz_pca_var(data.pca, col.var = "black")
 
-fviz_cos2(data.pca, choice = "var", axes = 1:2) #this shows the contribution of each variable in graph
+fviz_cos2(data.pca, choice = "var", axes = 1:2)
 
 fviz_pca_var(data.pca, col.var = "cos2",
             gradient.cols = c("black", "orange", "green"),
-            repel = TRUE) #this shows a combination of the first 2 plots together. A biplot with each variables contribution
-
+            repel = TRUE)
+```
 #black=low cos2 attributes
 #orange=mid cos2 attributes
 #green=high cos2 attributes
@@ -89,10 +89,10 @@ fviz_pca_var(data.pca, col.var = "cos2",
 
 # Find Top n principal component
 # which will atleast cover 90 % variance of dimension
-which(cumsum(our_data) >= 0.9)[1]
 
-FinalDataSet=Tr(FeatureVector)*Tr(StandardizedOriginalDataSet)
-
+```{r}
+which(cumsum(numerical_data) >= 0.9)[1]
+```
 
 ### Statistical Modeling
 

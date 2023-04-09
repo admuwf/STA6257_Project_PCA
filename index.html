@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -73,10 +136,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>install.packages(“rlang”) install.packages(“ggplot2”) library(“ggplot2”) install.packages(“corrr”) library(‘corrr’) install.packages(“ggcorrplot”) library(ggcorrplot) install.packages(“FactoMineR”) library(“FactoMineR”) install.packages(“factoextra”) library(“factoextra”)</p>
-</section>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+</div>
+</div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data. The goal of PCA is to transform the original variables into a new set of uncorrelated variables called principal components. This literature review aims to explore the methods and applications of PCA used in previous data analysis. While we will review the use of PCA in several analytical fields, our use of PCA focuses on National Football League data. Our analysis can be found below. In the simplest terms, PCA acts to rotate the axis of different variables to better understand the variance in the data. The variables with the most important relationships are kept as they explain the most variance in the dataset. In this way PCA is used to decrease the dimensionality of a dataset. The first Principal component is calculated by adding the variables once they have been multiplied by a weighted value. The next Principal component is calculated using another variable as long as that variable is uncorrelated to the first. This continues until the number of Principal Components equals the number of variables or until you have reached a determined cutoff point (Holland 2008). The four options provided by Holland to be used as a cutoff point are if the increase of variance explained from one variable to the next is minimal. The second is to set a limit for variance explained, possibly 90%, and ignore all PCs after this limit is reached. The third is to use a correlation matrix and the variance is less than 1. Finally, the fourth, is to ignore the last PCs in the list if their variance explained is equal. In all cases the distribution of the variables data needs to be normally distributed for PCA to work correctly.</p>
@@ -93,18 +165,314 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="analysis-and-results">Analysis and Results</h2>
 <section id="data-and-vizualisation" class="level3">
 <h3 class="anchored" data-anchor-id="data-and-vizualisation">Data and Vizualisation</h3>
-<p>our_data = read.csv(“https://github.com/admuwf/STA6257_Project_PCA/blob/main/STA%206257%20NFL%20Data.xlsx”) summary(our_data)</p>
-<p>colSums(is.na(our_data)) #returns missing values of each column</p>
-<p>our_data[is.na(our_data)] = 0</p>
-<p>colSums(is.na(our_data)) #returns missing values of each column</p>
-<p>#next, only use numerical values numerical_data = our_data[,2:51] head(numerical_data) data_normalized = scale(numerical_data)#normalizes data using scale function head(data_normalized)</p>
-<p>corr_matrix = cor(data_normalized) ggcorrplot(corr_matrix)</p>
-<p>data.pca = princomp(corr_matrix) #PCA values summary(data.pca) #3 variables: StD, prop of var, cum prop of var for each principal component # prop of var shows how much var is explained by each PC</p>
-<p>data.pca$loadings[, 1:2] #this loading matrix explores the PC1 and PC2</p>
-<p>fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component</p>
-<p>fviz_pca_var(data.pca, col.var = “black”) #this biplot the impact of each attribute on each PC</p>
-<p>fviz_cos2(data.pca, choice = “var”, axes = 1:2) #this shows the contribution of each variable in graph</p>
-<p>fviz_pca_var(data.pca, col.var = “cos2”, gradient.cols = c(“black”, “orange”, “green”), repel = TRUE) #this shows a combination of the first 2 plots together. A biplot with each variables contribution</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>our_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"NFL_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(our_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> Player       G      GS     Cmp     Att    Cmp.     Yds      TD     TD.     Int 
+      0       0       0       0       0       0       0       0       0       0 
+   Int.     X1D     Lng     Y.A    AY.A     Y.C     Y.G    Rate     QBR      Sk 
+      0       0       0       0       0      11       0       0       6       0 
+  Yds.1     Sk.    NY.A   ANY.A    X4QC     GWD     IAY  IAY.PA     CAY CAY.Cmp 
+      0       0       0       0      66      66       0       0       0       0 
+ CAY.PA     YAC YAC.Cmp    Bats   ThAwy  Spikes   Drops   Drop.   BadTh    Bad. 
+      0       0       0       0       0       0       0       0       0       0 
+  OnTgt  OnTgt.    Sk.1 PktTime    Bltz    Hrry    Hits    Prss   Prss.    Scrm 
+      0       0       0       0       0       0       0       0       0       0 
+Yds.Scr 
+      0 </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>our_data[<span class="fu">is.na</span>(our_data)] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(our_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> Player       G      GS     Cmp     Att    Cmp.     Yds      TD     TD.     Int 
+      0       0       0       0       0       0       0       0       0       0 
+   Int.     X1D     Lng     Y.A    AY.A     Y.C     Y.G    Rate     QBR      Sk 
+      0       0       0       0       0       0       0       0       0       0 
+  Yds.1     Sk.    NY.A   ANY.A    X4QC     GWD     IAY  IAY.PA     CAY CAY.Cmp 
+      0       0       0       0       0       0       0       0       0       0 
+ CAY.PA     YAC YAC.Cmp    Bats   ThAwy  Spikes   Drops   Drop.   BadTh    Bad. 
+      0       0       0       0       0       0       0       0       0       0 
+  OnTgt  OnTgt.    Sk.1 PktTime    Bltz    Hrry    Hits    Prss   Prss.    Scrm 
+      0       0       0       0       0       0       0       0       0       0 
+Yds.Scr 
+      0 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numerical_data <span class="ot">=</span> our_data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">51</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(numerical_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   G GS Cmp Att Cmp.  Yds TD TD. Int Int. X1D Lng Y.A AY.A  Y.C   Y.G  Rate
+1 17 17 435 648 67.1 5250 41 6.3  12  1.9 272  67 8.1  8.5 12.1 308.8 105.2
+2 17 17 477 699 68.2 4739 25 3.6  10  1.4 228  55 6.8  6.9  9.9 278.8  93.2
+3 17 17 490 733 66.8 4694 25 3.4   9  1.2 237  63 6.4  6.5  9.6 276.1  90.7
+4 17 17 424 643 65.9 4547 29 4.5  14  2.2 230  66 7.1  7.0 10.7 267.5  92.5
+5 16 16 414 606 68.3 4475 35 5.8  12  2.0 222  60 7.4  7.6 10.8 279.7 100.8
+6 17 17 382 587 65.1 4438 29 4.9   7  1.2 227  81 7.6  8.0 11.6 261.1  99.3
+   QBR Sk Yds.1 Sk. NY.A ANY.A X4QC GWD  IAY IAY.PA  CAY CAY.Cmp CAY.PA  YAC
+1 77.6 26   188 3.9 7.51  7.93    4   4 4686    7.2 2397     5.5    3.7 2853
+2 58.2 38   206 5.2 6.15  6.22    4   5 4476    6.4 2246     4.7    3.2 2493
+3 52.5 22   160 2.9 6.01  6.13    4   5 4876    6.7 2379     4.9    3.2 2315
+4 49.9 46   329 6.7 6.12  6.05    8   8 4800    7.5 2569     6.1    4.0 1978
+5 58.7 41   259 6.3 6.52  6.76    3   4 4121    6.8 2319     5.6    3.8 2156
+6 61.1 23   156 3.8 7.02  7.45    3   3 4106    7.0 2151     5.6    3.7 2287
+  YAC.Cmp Bats ThAwy Spikes Drops Drop. BadTh  Bad. OnTgt OnTgt. Sk.1 PktTime
+1     6.6    8    33      0    33 0.054    95 0.154   474  0.771   26     2.6
+2     5.2   23    25      2    39 0.058    87 0.129   508  0.756   38     2.5
+3     4.7   11    22      4    32 0.045   116 0.164   545  0.771   22     2.2
+4     4.7   14    27      3    25 0.041    93 0.152   469  0.765   46     2.5
+5     5.2   24    17      1    34 0.058    76 0.129   465  0.791   41     2.2
+6     6.0   11    27      1    34 0.061    94 0.168   426  0.762   23     2.4
+  Bltz Hrry Hits Prss Prss. Scrm Yds.Scr
+1  160   58   56  140 0.194   46     7.5
+2  182   50   72  160 0.211   22     6.5
+3  130   23   55  100 0.132    3     1.0
+4  159   36   84  166 0.237   12     9.1
+5  110   22   48  111 0.165   27     7.5
+6  186   43   53  119 0.191   14     4.6</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_normalized <span class="ot">=</span> <span class="fu">scale</span>(numerical_data)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_normalized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            G       GS      Cmp      Att      Cmp.      Yds       TD
+[1,] 1.203611 1.574735 2.385245 2.306502 0.3016187 2.714706 3.431333
+[2,] 1.203611 1.574735 2.693001 2.552831 0.3455467 2.372316 1.812996
+[3,] 1.203611 1.574735 2.788258 2.717051 0.2896383 2.342164 1.812996
+[4,] 1.203611 1.574735 2.304642 2.282352 0.2536973 2.243668 2.217580
+[5,] 1.037919 1.419024 2.231367 2.103642 0.3495401 2.195425 2.824457
+[6,] 1.203611 1.574735 1.996886 2.011873 0.2217496 2.170633 2.217580
+             TD.       Int       Int.      X1D       Lng        Y.A      AY.A
+[1,]  0.01463162 1.8639521 -0.2282493 2.957602 1.0325893 0.41720293 0.3250892
+[2,] -0.14459155 1.4012380 -0.2545819 2.350994 0.5705937 0.11446168 0.1879030
+[3,] -0.15638586 1.1698809 -0.2651150 2.475073 0.8785907 0.02131052 0.1536065
+[4,] -0.09151716 2.3266662 -0.2124497 2.378567 0.9940896 0.18432504 0.1964771
+[5,] -0.01485415 1.8639521 -0.2229828 2.268275 0.7630918 0.25418841 0.2479220
+[6,] -0.06792854 0.7071668 -0.2651150 2.337208 1.5715842 0.30076399 0.2822185
+              Y.C      Y.G      Rate       QBR        Sk     Yds.1         Sk.
+[1,]  0.478695264 1.872415 0.9209298 1.5438807 0.9512095 1.0886817 -0.31112163
+[2,]  0.056327744 1.574193 0.5068093 0.8018018 1.7765427 1.2711968 -0.11633489
+[3,] -0.001267827 1.547353 0.4205342 0.5837683 0.6760984 0.8047692 -0.46095758
+[4,]  0.209915933 1.461862 0.4826522 0.4843144 2.3267648 2.5183835  0.10841903
+[5,]  0.229114457 1.583140 0.7690856 0.8209275 1.9828760 1.8086024  0.04848465
+[6,]  0.382702646 1.398242 0.7173205 0.9127311 0.7448762 0.7642103 -0.32610522
+          NY.A     ANY.A     X4QC      GWD      IAY      IAY.PA      CAY
+[1,] 0.5361512 0.3544188 2.263943 1.987591 2.141550 -0.10680730 2.220724
+[2,] 0.1852247 0.2048136 2.263943 2.633863 2.008226 -0.25701060 2.030312
+[3,] 0.1490999 0.1969397 2.263943 2.633863 2.262177 -0.20068436 2.198026
+[4,] 0.1774837 0.1899406 5.078935 4.572679 2.213926 -0.05048106 2.437617
+[5,] 0.2806974 0.2520573 1.560196 1.987591 1.782844 -0.18190895 2.122366
+[6,] 0.4097145 0.3124243 1.560196 1.341319 1.773321 -0.14435812 1.910517
+          CAY.Cmp      CAY.PA      YAC     YAC.Cmp      Bats    ThAwy
+[1,]  0.135436242  0.11284924 3.210656 0.641409449 0.7090986 3.009139
+[2,] -0.052534189 -0.01831325 2.706030 0.173439133 3.4590176 2.099100
+[3,] -0.005541581 -0.01831325 2.456521 0.006306878 1.2590824 1.757835
+[4,]  0.276414065  0.19154674 1.984135 0.006306878 1.8090662 2.326609
+[5,]  0.158932546  0.13908174 2.233644 0.173439133 3.6423456 1.189061
+[6,]  0.158932546  0.11284924 2.417272 0.440850742 1.2590824 2.326609
+         Spikes    Drops        Drop.    BadTh       Bad.    OnTgt    OnTgt.
+[1,] -0.5766094 2.061684  0.162927103 2.195946 -0.1738088 2.319315 0.3164654
+[2,]  1.3637269 2.576094  0.234144724 1.939344 -0.2880150 2.543562 0.2571771
+[3,]  3.3040632 1.975949  0.002687457 2.869527 -0.1281264 2.787596 0.3164654
+[4,]  2.3338950 1.375804 -0.068530163 2.131795 -0.1829453 2.286338 0.2927501
+[5,]  0.3935588 2.147419  0.234144724 1.586516 -0.2880150 2.259956 0.3955165
+[6,]  0.3935588 2.147419  0.287557939 2.163871 -0.1098534 2.002731 0.2808924
+          Sk.1     PktTime     Bltz      Hrry     Hits     Prss       Prss.
+[1,] 0.9512095  0.55376641 2.067267 2.9362652 2.069434 2.107899 -0.03464183
+[2,] 1.7765427  0.41163750 2.465160 2.4244558 2.883952 2.527894  0.05377826
+[3,] 0.6760984 -0.01474923 1.524686 0.6970989 2.018526 1.267909 -0.35711510
+[4,] 2.3267648  0.41163750 2.049181 1.5287893 3.494841 2.653893  0.18900898
+[5,] 1.9828760 -0.01474923 1.162966 0.6331228 1.662175 1.498907 -0.18547610
+[6,] 0.7448762  0.26950859 2.537504 1.9766225 1.916712 1.666905 -0.05024538
+           Scrm     Yds.Scr
+[1,]  2.8380909  0.86755988
+[2,]  1.0152928  0.59048441
+[3,] -0.4277557 -0.93343065
+[4,]  0.2557936  1.31088063
+[5,]  1.3950424  0.86755988
+[6,]  0.4076934  0.06404103</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="ot">=</span> <span class="fu">cor</span>(data_normalized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data.pca <span class="ot">=</span> <span class="fu">princomp</span>(corr_matrix)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          Comp.1    Comp.2     Comp.3     Comp.4     Comp.5
+Standard deviation     1.9535398 0.9144781 0.36833720 0.36063536 0.22811970
+Proportion of Variance 0.7455282 0.1633677 0.02650396 0.02540716 0.01016588
+Cumulative Proportion  0.7455282 0.9088959 0.93539982 0.96080699 0.97097287
+                            Comp.6      Comp.7      Comp.8      Comp.9
+Standard deviation     0.196138587 0.168259053 0.143968290 0.118130113
+Proportion of Variance 0.007515288 0.005530653 0.004049051 0.002726094
+Cumulative Proportion  0.978488157 0.984018810 0.988067861 0.990793954
+                           Comp.10     Comp.11    Comp.12      Comp.13
+Standard deviation     0.104407138 0.096556411 0.08369692 0.0673521255
+Proportion of Variance 0.002129511 0.001821301 0.00136848 0.0008861804
+Cumulative Proportion  0.992923465 0.994744766 0.99611325 0.9969994270
+                            Comp.14      Comp.15      Comp.16      Comp.17
+Standard deviation     0.0615770329 0.0491537960 0.0467594234 0.0390312282
+Proportion of Variance 0.0007407251 0.0004719909 0.0004271278 0.0002976076
+Cumulative Proportion  0.9977401521 0.9982121431 0.9986392708 0.9989368784
+                            Comp.18      Comp.19      Comp.20      Comp.21
+Standard deviation     0.0357054972 0.0327615015 0.0268181920 0.0254941863
+Proportion of Variance 0.0002490518 0.0002096752 0.0001405007 0.0001269702
+Cumulative Proportion  0.9991859302 0.9993956055 0.9995361062 0.9996630764
+                            Comp.22      Comp.23      Comp.24      Comp.25
+Standard deviation     0.0225673524 1.723099e-02 1.503319e-02 1.297598e-02
+Proportion of Variance 0.0000994903 5.800163e-05 4.414907e-05 3.289273e-05
+Cumulative Proportion  0.9997625667 9.998206e-01 9.998647e-01 9.998976e-01
+                            Comp.26      Comp.27      Comp.28      Comp.29
+Standard deviation     1.080084e-02 9.666571e-03 9.341219e-03 8.271532e-03
+Proportion of Variance 2.278948e-05 1.825427e-05 1.704616e-05 1.336569e-05
+Cumulative Proportion  9.999204e-01 9.999387e-01 9.999557e-01 9.999691e-01
+                            Comp.30      Comp.31      Comp.32      Comp.33
+Standard deviation     7.303684e-03 5.744775e-03 4.605028e-03 3.989226e-03
+Proportion of Variance 1.042086e-05 6.447119e-06 4.142705e-06 3.108829e-06
+Cumulative Proportion  9.999795e-01 9.999859e-01 9.999901e-01 9.999932e-01
+                            Comp.34      Comp.35      Comp.36      Comp.37
+Standard deviation     3.561958e-03 2.722861e-03 2.597612e-03 2.427665e-03
+Proportion of Variance 2.478547e-06 1.448340e-06 1.318160e-06 1.151323e-06
+Cumulative Proportion  9.999957e-01 9.999971e-01 9.999984e-01 9.999996e-01
+                            Comp.38      Comp.39      Comp.40      Comp.41
+Standard deviation     9.629111e-04 7.555849e-04 6.401678e-04 4.442343e-04
+Proportion of Variance 1.811306e-07 1.115285e-07 8.005846e-08 3.855171e-08
+Cumulative Proportion  9.999998e-01 9.999999e-01 1.000000e+00 1.000000e+00
+                            Comp.42      Comp.43      Comp.44      Comp.45
+Standard deviation     1.893467e-04 2.356664e-05 1.094834e-05 3.710786e-06
+Proportion of Variance 7.003819e-09 1.084963e-10 2.341616e-11 2.689995e-12
+Cumulative Proportion  1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00
+                            Comp.46      Comp.47 Comp.48 Comp.49 Comp.50
+Standard deviation     2.702178e-06 1.156672e-08       0       0       0
+Proportion of Variance 1.426420e-12 2.613605e-17       0       0       0
+Cumulative Proportion  1.000000e+00 1.000000e+00       1       1       1</code></pre>
+</div>
+</div>
+<p>#3 variables: StD, prop of var, cum prop of var for each principal component # prop of var shows how much var is explained by each PC</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data.pca<span class="sc">$</span>loadings[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Comp.1       Comp.2
+G        0.090646676  0.040886053
+GS       0.134135465 -0.011140757
+Cmp      0.202129686 -0.014282180
+Att      0.202996167 -0.013163299
+Cmp.    -0.016837100 -0.298009418
+Yds      0.200926250 -0.017757417
+TD       0.190357340 -0.020874249
+TD.     -0.063641401 -0.145645178
+Int      0.187293718  0.000193361
+Int.    -0.013157466  0.242466225
+X1D      0.199896590 -0.017723770
+Lng      0.113935880 -0.117155121
+Y.A     -0.052141656 -0.274896366
+AY.A    -0.028077698 -0.321168283
+Y.C     -0.027559271 -0.255270471
+Y.G      0.162434123 -0.050523598
+Rate     0.005526171 -0.303386282
+QBR      0.042972246 -0.200450404
+Sk       0.188201356 -0.009790998
+Yds.1    0.187325650 -0.009227685
+Sk.     -0.016672390 -0.071360680
+NY.A    -0.042268934 -0.275079616
+ANY.A   -0.023744284 -0.317546659
+X4QC     0.178555439  0.004175251
+GWD      0.182657326  0.003549912
+IAY      0.200436785 -0.013853884
+IAY.PA  -0.038055285  0.062207993
+CAY      0.198893722 -0.018272560
+CAY.Cmp -0.037108139 -0.212385011
+CAY.PA  -0.057299984 -0.211305776
+YAC      0.199250813 -0.016837032
+YAC.Cmp  0.005251579 -0.142190136
+Bats     0.185538627 -0.011298654
+ThAwy    0.188800328 -0.006002417
+Spikes   0.113233913 -0.005353539
+Drops    0.193170735 -0.011904099
+Drop.    0.038785853  0.009181312
+BadTh    0.197616241 -0.009367490
+Bad.     0.000656302  0.220685263
+OnTgt    0.202226059 -0.014066785
+OnTgt.  -0.006327654 -0.268047138
+Sk.1     0.188201356 -0.009790998
+PktTime  0.045461461  0.069822706
+Bltz     0.199538027 -0.014179429
+Hrry     0.191160560 -0.006582641
+Hits     0.192845819 -0.003847017
+Prss     0.199760831 -0.006737098
+Prss.   -0.005104338  0.097846220
+Scrm     0.152091702 -0.006793362
+Yds.Scr  0.101559897 -0.054354420</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co">#this is a scree plot of the principal component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"orange"</span>, <span class="st">"green"</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <p>#black=low cos2 attributes #orange=mid cos2 attributes #green=high cos2 attributes #better than the other fviz_pca_var graph… just use this</p>
 </section>
 </section>
@@ -113,8 +481,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="which-will-atleast-cover-90-variance-of-dimension" class="level1">
 <h1>which will atleast cover 90 % variance of dimension</h1>
-<p>which(cumsum(our_data) &gt;= 0.9)[1]</p>
-<p>FinalDataSet=Tr(FeatureVector)*Tr(StandardizedOriginalDataSet)</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">cumsum</span>(numerical_data) <span class="sc">&gt;=</span> <span class="fl">0.9</span>)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
 <section id="statistical-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
 </section>
