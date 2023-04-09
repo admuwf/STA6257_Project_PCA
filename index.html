@@ -96,11 +96,11 @@ ul.task-list li input[type="checkbox"] {
 <p>our_data = read.csv(“C:/Users/curti/OneDrive/Desktop/Data Science MS/Adv Stats Modeling/PCA Project docs/NFL.csv”)</p>
 <p>summary(our_data)</p>
 <p>colSums(is.na(our_data)) #returns missing values of each column</p>
-<p>our_data[is.na(our_data)] &lt;- 0</p>
+<p>our_data[is.na(our_data)] = 0</p>
 <p>colSums(is.na(our_data)) #returns missing values of each column</p>
-<p>#next, only use numerical values numerical_data &lt;- our_data[,2:51] head(numerical_data) data_normalized &lt;- scale(numerical_data)#normalizes data using scale function head(data_normalized)</p>
-<p>corr_matrix &lt;- cor(data_normalized) ggcorrplot(corr_matrix)</p>
-<p>data.pca &lt;- princomp(corr_matrix) #PCA values summary(data.pca) #3 variables: StD, prop of var, cum prop of var for each principal component # prop of var shows how much var is explained by each PC</p>
+<p>#next, only use numerical values numerical_data = our_data[,2:51] head(numerical_data) data_normalized = scale(numerical_data)#normalizes data using scale function head(data_normalized)</p>
+<p>corr_matrix = cor(data_normalized) ggcorrplot(corr_matrix)</p>
+<p>data.pca = princomp(corr_matrix) #PCA values summary(data.pca) #3 variables: StD, prop of var, cum prop of var for each principal component # prop of var shows how much var is explained by each PC</p>
 <p>data.pca$loadings[, 1:2] #this loading matrix explores the PC1 and PC2</p>
 <p>fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component</p>
 <p>fviz_pca_var(data.pca, col.var = “black”) #this biplot the impact of each attribute on each PC</p>

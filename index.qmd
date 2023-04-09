@@ -52,20 +52,20 @@ summary(our_data)
 
 colSums(is.na(our_data)) #returns missing values of each column
 
-our_data[is.na(our_data)] <- 0
+our_data[is.na(our_data)] = 0
 
 colSums(is.na(our_data)) #returns missing values of each column
 
 #next, only use numerical values
-numerical_data <- our_data[,2:51]
+numerical_data = our_data[,2:51]
 head(numerical_data)
-data_normalized <- scale(numerical_data)#normalizes data using scale function
+data_normalized = scale(numerical_data)#normalizes data using scale function
 head(data_normalized)
 
-corr_matrix <- cor(data_normalized)
+corr_matrix = cor(data_normalized)
 ggcorrplot(corr_matrix)
 
-data.pca <- princomp(corr_matrix) #PCA values
+data.pca = princomp(corr_matrix) #PCA values
 summary(data.pca)
 #3 variables: StD, prop of var, cum prop of var for each principal component
 # prop of var shows how much var is explained by each PC
