@@ -34,9 +34,19 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 
 ## Methods
 
-## Analysis and Results
+PCA leverages an unsupervised linear transformation to perform feature extraction and dimensionality reduction. It is recommended to use PCA when dealing with strongly correlated variables. The PCA that we are running will be used to explore the dataset.  
+
+In order to run a PCA analysis we first had to normalize the data. The data we were able to get offline was incomplete for some quarterbacks. We had to fill in the stats with zero if that variable had been blank. We then had to remove any variable with any nonlinear data. We then normalized the data using the scale function. After the data was normalized we could move onto the actual analysis. 
+
+After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix  This table displays the correlation coefficients between the variables in a data set.
+
+The correlation matrix is then run through the principal component to get the PCA values. The summary table shows the results of the PCA values. 
 
 ### Data and Vizualisation
+
+We are looking at advanced passing stats for the 2022 - 2023 NFL calendar year. The data was found on pro-football-reference.com. We looked at common NFL stats such as touchdowns, interceptions, and yards while also looking at less used stats such as on target % and how much time they had in the pocket. By having over fifty variables a PCA is the best way to summarize the large data set.  
+
+
 ```{r}
 our_data = read.csv("NFL_Data.csv")
 our_data[is.na(our_data)] = 0
