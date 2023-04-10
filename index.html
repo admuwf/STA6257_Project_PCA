@@ -168,53 +168,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>our_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"NFL_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>our_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"NFL_Data.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>our_data[<span class="fu">is.na</span>(our_data)] <span class="ot">=</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(our_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code> Player       G      GS     Cmp     Att    Cmp.     Yds      TD     TD.     Int 
-      0       0       0       0       0       0       0       0       0       0 
-   Int.     X1D     Lng     Y.A    AY.A     Y.C     Y.G    Rate     QBR      Sk 
-      0       0       0       0       0      11       0       0       6       0 
-  Yds.1     Sk.    NY.A   ANY.A    X4QC     GWD     IAY  IAY.PA     CAY CAY.Cmp 
-      0       0       0       0      66      66       0       0       0       0 
- CAY.PA     YAC YAC.Cmp    Bats   ThAwy  Spikes   Drops   Drop.   BadTh    Bad. 
-      0       0       0       0       0       0       0       0       0       0 
-  OnTgt  OnTgt.    Sk.1 PktTime    Bltz    Hrry    Hits    Prss   Prss.    Scrm 
-      0       0       0       0       0       0       0       0       0       0 
-Yds.Scr 
-      0 </code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>our_data[<span class="fu">is.na</span>(our_data)] <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(our_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code> Player       G      GS     Cmp     Att    Cmp.     Yds      TD     TD.     Int 
-      0       0       0       0       0       0       0       0       0       0 
-   Int.     X1D     Lng     Y.A    AY.A     Y.C     Y.G    Rate     QBR      Sk 
-      0       0       0       0       0       0       0       0       0       0 
-  Yds.1     Sk.    NY.A   ANY.A    X4QC     GWD     IAY  IAY.PA     CAY CAY.Cmp 
-      0       0       0       0       0       0       0       0       0       0 
- CAY.PA     YAC YAC.Cmp    Bats   ThAwy  Spikes   Drops   Drop.   BadTh    Bad. 
-      0       0       0       0       0       0       0       0       0       0 
-  OnTgt  OnTgt.    Sk.1 PktTime    Bltz    Hrry    Hits    Prss   Prss.    Scrm 
-      0       0       0       0       0       0       0       0       0       0 
-Yds.Scr 
-      0 </code></pre>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numerical_data <span class="ot">=</span> our_data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">51</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(numerical_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>numerical_data <span class="ot">=</span> our_data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">51</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(numerical_data,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   G GS Cmp Att Cmp.  Yds TD TD. Int Int. X1D Lng Y.A AY.A  Y.C   Y.G  Rate
@@ -223,103 +185,42 @@ Yds.Scr
 3 17 17 490 733 66.8 4694 25 3.4   9  1.2 237  63 6.4  6.5  9.6 276.1  90.7
 4 17 17 424 643 65.9 4547 29 4.5  14  2.2 230  66 7.1  7.0 10.7 267.5  92.5
 5 16 16 414 606 68.3 4475 35 5.8  12  2.0 222  60 7.4  7.6 10.8 279.7 100.8
-6 17 17 382 587 65.1 4438 29 4.9   7  1.2 227  81 7.6  8.0 11.6 261.1  99.3
    QBR Sk Yds.1 Sk. NY.A ANY.A X4QC GWD  IAY IAY.PA  CAY CAY.Cmp CAY.PA  YAC
 1 77.6 26   188 3.9 7.51  7.93    4   4 4686    7.2 2397     5.5    3.7 2853
 2 58.2 38   206 5.2 6.15  6.22    4   5 4476    6.4 2246     4.7    3.2 2493
 3 52.5 22   160 2.9 6.01  6.13    4   5 4876    6.7 2379     4.9    3.2 2315
 4 49.9 46   329 6.7 6.12  6.05    8   8 4800    7.5 2569     6.1    4.0 1978
 5 58.7 41   259 6.3 6.52  6.76    3   4 4121    6.8 2319     5.6    3.8 2156
-6 61.1 23   156 3.8 7.02  7.45    3   3 4106    7.0 2151     5.6    3.7 2287
   YAC.Cmp Bats ThAwy Spikes Drops Drop. BadTh  Bad. OnTgt OnTgt. Sk.1 PktTime
 1     6.6    8    33      0    33 0.054    95 0.154   474  0.771   26     2.6
 2     5.2   23    25      2    39 0.058    87 0.129   508  0.756   38     2.5
 3     4.7   11    22      4    32 0.045   116 0.164   545  0.771   22     2.2
 4     4.7   14    27      3    25 0.041    93 0.152   469  0.765   46     2.5
 5     5.2   24    17      1    34 0.058    76 0.129   465  0.791   41     2.2
-6     6.0   11    27      1    34 0.061    94 0.168   426  0.762   23     2.4
   Bltz Hrry Hits Prss Prss. Scrm Yds.Scr
 1  160   58   56  140 0.194   46     7.5
 2  182   50   72  160 0.211   22     6.5
 3  130   23   55  100 0.132    3     1.0
 4  159   36   84  166 0.237   12     9.1
-5  110   22   48  111 0.165   27     7.5
-6  186   43   53  119 0.191   14     4.6</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_normalized <span class="ot">=</span> <span class="fu">scale</span>(numerical_data)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_normalized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>            G       GS      Cmp      Att      Cmp.      Yds       TD
-[1,] 1.203611 1.574735 2.385245 2.306502 0.3016187 2.714706 3.431333
-[2,] 1.203611 1.574735 2.693001 2.552831 0.3455467 2.372316 1.812996
-[3,] 1.203611 1.574735 2.788258 2.717051 0.2896383 2.342164 1.812996
-[4,] 1.203611 1.574735 2.304642 2.282352 0.2536973 2.243668 2.217580
-[5,] 1.037919 1.419024 2.231367 2.103642 0.3495401 2.195425 2.824457
-[6,] 1.203611 1.574735 1.996886 2.011873 0.2217496 2.170633 2.217580
-             TD.       Int       Int.      X1D       Lng        Y.A      AY.A
-[1,]  0.01463162 1.8639521 -0.2282493 2.957602 1.0325893 0.41720293 0.3250892
-[2,] -0.14459155 1.4012380 -0.2545819 2.350994 0.5705937 0.11446168 0.1879030
-[3,] -0.15638586 1.1698809 -0.2651150 2.475073 0.8785907 0.02131052 0.1536065
-[4,] -0.09151716 2.3266662 -0.2124497 2.378567 0.9940896 0.18432504 0.1964771
-[5,] -0.01485415 1.8639521 -0.2229828 2.268275 0.7630918 0.25418841 0.2479220
-[6,] -0.06792854 0.7071668 -0.2651150 2.337208 1.5715842 0.30076399 0.2822185
-              Y.C      Y.G      Rate       QBR        Sk     Yds.1         Sk.
-[1,]  0.478695264 1.872415 0.9209298 1.5438807 0.9512095 1.0886817 -0.31112163
-[2,]  0.056327744 1.574193 0.5068093 0.8018018 1.7765427 1.2711968 -0.11633489
-[3,] -0.001267827 1.547353 0.4205342 0.5837683 0.6760984 0.8047692 -0.46095758
-[4,]  0.209915933 1.461862 0.4826522 0.4843144 2.3267648 2.5183835  0.10841903
-[5,]  0.229114457 1.583140 0.7690856 0.8209275 1.9828760 1.8086024  0.04848465
-[6,]  0.382702646 1.398242 0.7173205 0.9127311 0.7448762 0.7642103 -0.32610522
-          NY.A     ANY.A     X4QC      GWD      IAY      IAY.PA      CAY
-[1,] 0.5361512 0.3544188 2.263943 1.987591 2.141550 -0.10680730 2.220724
-[2,] 0.1852247 0.2048136 2.263943 2.633863 2.008226 -0.25701060 2.030312
-[3,] 0.1490999 0.1969397 2.263943 2.633863 2.262177 -0.20068436 2.198026
-[4,] 0.1774837 0.1899406 5.078935 4.572679 2.213926 -0.05048106 2.437617
-[5,] 0.2806974 0.2520573 1.560196 1.987591 1.782844 -0.18190895 2.122366
-[6,] 0.4097145 0.3124243 1.560196 1.341319 1.773321 -0.14435812 1.910517
-          CAY.Cmp      CAY.PA      YAC     YAC.Cmp      Bats    ThAwy
-[1,]  0.135436242  0.11284924 3.210656 0.641409449 0.7090986 3.009139
-[2,] -0.052534189 -0.01831325 2.706030 0.173439133 3.4590176 2.099100
-[3,] -0.005541581 -0.01831325 2.456521 0.006306878 1.2590824 1.757835
-[4,]  0.276414065  0.19154674 1.984135 0.006306878 1.8090662 2.326609
-[5,]  0.158932546  0.13908174 2.233644 0.173439133 3.6423456 1.189061
-[6,]  0.158932546  0.11284924 2.417272 0.440850742 1.2590824 2.326609
-         Spikes    Drops        Drop.    BadTh       Bad.    OnTgt    OnTgt.
-[1,] -0.5766094 2.061684  0.162927103 2.195946 -0.1738088 2.319315 0.3164654
-[2,]  1.3637269 2.576094  0.234144724 1.939344 -0.2880150 2.543562 0.2571771
-[3,]  3.3040632 1.975949  0.002687457 2.869527 -0.1281264 2.787596 0.3164654
-[4,]  2.3338950 1.375804 -0.068530163 2.131795 -0.1829453 2.286338 0.2927501
-[5,]  0.3935588 2.147419  0.234144724 1.586516 -0.2880150 2.259956 0.3955165
-[6,]  0.3935588 2.147419  0.287557939 2.163871 -0.1098534 2.002731 0.2808924
-          Sk.1     PktTime     Bltz      Hrry     Hits     Prss       Prss.
-[1,] 0.9512095  0.55376641 2.067267 2.9362652 2.069434 2.107899 -0.03464183
-[2,] 1.7765427  0.41163750 2.465160 2.4244558 2.883952 2.527894  0.05377826
-[3,] 0.6760984 -0.01474923 1.524686 0.6970989 2.018526 1.267909 -0.35711510
-[4,] 2.3267648  0.41163750 2.049181 1.5287893 3.494841 2.653893  0.18900898
-[5,] 1.9828760 -0.01474923 1.162966 0.6331228 1.662175 1.498907 -0.18547610
-[6,] 0.7448762  0.26950859 2.537504 1.9766225 1.916712 1.666905 -0.05024538
-           Scrm     Yds.Scr
-[1,]  2.8380909  0.86755988
-[2,]  1.0152928  0.59048441
-[3,] -0.4277557 -0.93343065
-[4,]  0.2557936  1.31088063
-[5,]  1.3950424  0.86755988
-[6,]  0.4076934  0.06404103</code></pre>
+5  110   22   48  111 0.165   27     7.5</code></pre>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="ot">=</span> <span class="fu">cor</span>(data_normalized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_normalized <span class="ot">=</span> <span class="fu">scale</span>(numerical_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="ot">=</span> <span class="fu">cor</span>(data_normalized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
@@ -328,8 +229,8 @@ Yds.Scr
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data.pca <span class="ot">=</span> <span class="fu">princomp</span>(corr_matrix)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data.pca <span class="ot">=</span> <span class="fu">princomp</span>(corr_matrix)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
@@ -383,11 +284,10 @@ Proportion of Variance 1.426420e-12 2.613605e-17       0       0       0
 Cumulative Proportion  1.000000e+00 1.000000e+00       1       1       1</code></pre>
 </div>
 </div>
-<p>#3 variables: StD, prop of var, cum prop of var for each principal component # prop of var shows how much var is explained by each PC</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data.pca<span class="sc">$</span>loadings[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data.pca<span class="sc">$</span>loadings[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Comp.1       Comp.2
@@ -444,57 +344,39 @@ Yds.Scr  0.101559897 -0.054354420</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co">#this is a scree plot of the principal component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co">#this is a scree plot of the principal component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"orange"</span>, <span class="st">"green"</span>),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"orange"</span>, <span class="st">"green"</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-4.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>#black=low cos2 attributes #orange=mid cos2 attributes #green=high cos2 attributes #better than the other fviz_pca_var graph… just use this</p>
-</section>
-</section>
-<section id="find-top-n-principal-component" class="level1">
-<h1>Find Top n principal component</h1>
-</section>
-<section id="which-will-atleast-cover-90-variance-of-dimension" class="level1">
-<h1>which will atleast cover 90 % variance of dimension</h1>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">cumsum</span>(numerical_data) <span class="sc">&gt;=</span> <span class="fl">0.9</span>)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-<section id="statistical-modeling" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
 </section>
 <section id="conlusion" class="level3">
 <h3 class="anchored" data-anchor-id="conlusion">Conlusion</h3>
+</section>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -510,7 +392,6 @@ Yds.Scr  0.101559897 -0.054354420</code></pre>
 <p>Pino-Ortega, José, et al.&nbsp;“Training Design, Performance Analysis, and Talent Identification—a Systematic Review about the Most Relevant Variables through the Principal Component Analysis in Soccer, Basketball, and Rugby.” International Journal of Environmental Research and Public Health, vol.&nbsp;18, no. 5, 2021, p.&nbsp;2642., https://doi.org/10.3390/ijerph18052642.</p>
 <p>Sugar, Glenn, and Travis Swenson. “Predicting optimal game day fantasy football teams.” Von http://cs229. stanford. edu/proj2015/115_report. pdf (accessed on: 20/06/2020). Search in (2015).</p>
 <p>Watnik, Mitchell, and Richard A. Levine. “NFL Y2K PCA.” Journal of Statistics Education 9.3 (2001).</p>
-</section>
 </section>
 
 </main>

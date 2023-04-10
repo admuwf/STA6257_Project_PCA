@@ -36,23 +36,19 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 
 ## Analysis and Results
 
-
-
 ### Data and Vizualisation
 ```{r}
 our_data = read.csv("NFL_Data.csv")
+our_data[is.na(our_data)] = 0
 ```
 
 ```{r}
-colSums(is.na(our_data))
-our_data[is.na(our_data)] = 0
-colSums(is.na(our_data))
-```
-```{r}
 numerical_data = our_data[,2:51]
-head(numerical_data)
+head(numerical_data,5)
+```
+
+```{r}
 data_normalized = scale(numerical_data)
-head(data_normalized)
 ```
 
 ```{r}
@@ -67,8 +63,7 @@ ggcorrplot(corr_matrix)
 data.pca = princomp(corr_matrix)
 summary(data.pca)
 ```
-#3 variables: StD, prop of var, cum prop of var for each principal component
-# prop of var shows how much var is explained by each PC
+
 ```{r}
 data.pca$loadings[, 1:2]
 
@@ -82,19 +77,6 @@ fviz_pca_var(data.pca, col.var = "cos2",
             gradient.cols = c("black", "orange", "green"),
             repel = TRUE)
 ```
-#black=low cos2 attributes
-#orange=mid cos2 attributes
-#green=high cos2 attributes
-#better than the other fviz_pca_var graph... just use this
-
-# Find Top n principal component
-# which will atleast cover 90 % variance of dimension
-
-```{r}
-which(cumsum(numerical_data) >= 0.9)[1]
-```
-
-### Statistical Modeling
 
 ### Conlusion
 
