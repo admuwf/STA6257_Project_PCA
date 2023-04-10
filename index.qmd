@@ -2,6 +2,7 @@
 title: "PCA Method Review"
 author: "Andrew Mercer, Curtis Fox, Eddie Pierce"
 date: '`r Sys.Date()`'
+toc: True
 format:
   html:
     code-fold: true
