@@ -71,6 +71,8 @@ fviz_pca_var(data.pca, col.var = "cos2",
             gradient.cols = c("black", "orange", "green"),
             repel = TRUE)
 ```
+#Black=Low Cos2 Attributes; Orange=Mid Cos2 Attributes; Green=High Cos2 Attributes
+
 
 ### Conlusion
 
