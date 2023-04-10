@@ -74,6 +74,8 @@ fviz_pca_var(data.pca, col.var = "cos2",
 
 ### Conlusion
 
+In conclusion,there really isn't a perfect way to choose the number of principal components are needed/wanted. One common method is to examine the scree plot. Thus, to identify where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. Another way is to decide on the proportion of variance that is explained as a cutoff, like 90%. In our data, you can see that the first two principal components achieve both of these benchmarks. This makes choosing the first 2 easy, as they account for 91% of the proportion of the variance explained and the drop off is fairly significant to the third principal component. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components. That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, this will reduce the dimensionality and then an easier, more cost efficient, and less needed computer resources analysis can be performed.  
+
 ## References
 
 Extracting Spectral Contrast in Landsat Thematic Mapper Image Data using Selective Principal Components Analysis- Pat S. Chavez, Jr. Photogrammetric Engineering and Remote Sensing, Vol. 55, No. 3,  Mar 1989, pp. 339-348

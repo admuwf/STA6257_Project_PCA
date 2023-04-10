@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Mercer, Curtis Fox, Eddie Pierce">
-<meta name="dcterms.date" content="2023-04-09">
+<meta name="dcterms.date" content="2023-04-10">
 
 <title>PCA Method Review</title>
 <style>
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 9, 2023</p>
+      <p class="date">April 10, 2023</p>
     </div>
   </div>
     
@@ -366,6 +366,7 @@ Yds.Scr  0.101559897 -0.054354420</code></pre>
 </section>
 <section id="conlusion" class="level3">
 <h3 class="anchored" data-anchor-id="conlusion">Conlusion</h3>
+<p>In conclusion,there really isn’t a perfect way to choose the number of principal components are needed/wanted. One common method is to examine the scree plot. Thus, to identify where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. Another way is to decide on the proportion of variance that is explained as a cutoff, like 90%. In our data, you can see that the first two principal components achieve both of these benchmarks. This makes choosing the first 2 easy, as they account for 91% of the proportion of the variance explained and the drop off is fairly significant to the third principal component. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components. That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, this will reduce the dimensionality and then an easier, more cost efficient, and less needed computer resources analysis can be performed.</p>
 </section>
 </section>
 <section id="references" class="level2">
