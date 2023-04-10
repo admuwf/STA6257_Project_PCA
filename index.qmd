@@ -40,9 +40,6 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 ```{r}
 our_data = read.csv("NFL_Data.csv")
 our_data[is.na(our_data)] = 0
-```
-
-```{r}
 numerical_data = our_data[,2:51]
 head(numerical_data,5)
 ```
