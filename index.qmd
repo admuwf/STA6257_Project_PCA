@@ -49,13 +49,7 @@ head(numerical_data,5)
 
 ```{r}
 data_normalized = scale(numerical_data)
-```
-
-```{r}
 corr_matrix = cor(data_normalized)
-```
-
-```{r}
 ggcorrplot(corr_matrix)
 ```
 
