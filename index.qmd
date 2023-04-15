@@ -66,6 +66,8 @@ knitr::kable(
 )
 ```
 
+Below there is a tabel describing the variables
+
 | Variable | Description | Type |
 |:---------|:-----------:|-----:|
 | G        | Games Played | Numeric |
