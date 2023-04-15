@@ -15,12 +15,6 @@ bibliography: references.bib # file contains bibtex for references
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
----
-title: "My Document"
-execute:
-  Message: false
----
-
 ```{r}
 library(ggplot2)
 library(corrr)
