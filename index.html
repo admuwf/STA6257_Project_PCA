@@ -131,6 +131,7 @@ div.csl-indent {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#old-methods" id="toc-old-methods" class="nav-link" data-scroll-target="#old-methods">Old Methods</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#statistical-modeling" id="toc-statistical-modeling" class="nav-link" data-scroll-target="#statistical-modeling">Statistical Modeling</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
@@ -189,6 +190,10 @@ div.csl-indent {
 </section>
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<p>Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data. A PCA analysis allows us to reduce the number of variables in a dataset, which allows us to easily identify relationships between the variables. A byproduct of this is easily visualizable data. The first step in a PCA is to normalize the data. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. We then need to calculate the covariance matrix for the dataset. The covariance matrix is used to determine how correlated the variables in a dataset are. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. After we determine the eigenvalues and vectors, we have to find how many principal components to keep. This varies greatly depending on the goals of the analysis. In this analysis we determined that two was adequate. After finding the principal components we can interpret the results.</p>
+</section>
+<section id="old-methods" class="level3">
+<h3 class="anchored" data-anchor-id="old-methods">Old Methods</h3>
 <p>PCA leverages an unsupervised linear transformation to perform feature extraction and dimensionality reduction. It is recommended to use PCA when dealing with strongly correlated variables. The PCA that we are running will be used to explore the dataset.</p>
 <p>In order to run a PCA analysis we first had to normalize the data. The data we were able to get offline was incomplete for some quarterbacks. We had to fill in the stats with zero if that variable had been blank. We then had to remove any variable with any nonlinear data. We then normalized the data using the scale function. After the data was normalized we could move onto the actual analysis.</p>
 <p>After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix This table displays the correlation coefficients between the variables in a data set.</p>
@@ -264,8 +269,262 @@ div.csl-indent {
 </table>
 </div>
 </div>
-<p>A table of variable definitions can be found below.</p>
-<p>Table of variables go here</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: right;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">G</td>
+<td style="text-align: center;">Games Played</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GS</td>
+<td style="text-align: center;">Games Started</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cmp</td>
+<td style="text-align: center;">Completions</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Att</td>
+<td style="text-align: center;">Attempts</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cmp%</td>
+<td style="text-align: center;">Completion Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yds</td>
+<td style="text-align: center;">Yards</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TD</td>
+<td style="text-align: center;">Touchdowns</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TD%</td>
+<td style="text-align: center;">Touchdown Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Int</td>
+<td style="text-align: center;">Interceptions</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Int%</td>
+<td style="text-align: center;">Interception Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1D</td>
+<td style="text-align: center;">First Downs</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lng</td>
+<td style="text-align: center;">Longest Completion</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Y/A</td>
+<td style="text-align: center;">Yards per Attempt</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AY/A</td>
+<td style="text-align: center;">Adjusted Yards per Attempt</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Y/C</td>
+<td style="text-align: center;">Yards per Completion</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Y/G</td>
+<td style="text-align: center;">Yards per Game</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rate</td>
+<td style="text-align: center;">Passer Rating</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">QBR</td>
+<td style="text-align: center;">Quarterback Rating</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sk</td>
+<td style="text-align: center;">Sacks</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yds</td>
+<td style="text-align: center;">Sack Yards</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sk%</td>
+<td style="text-align: center;">Sack Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NY/A</td>
+<td style="text-align: center;">Net Yards per Attempt</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANY/A</td>
+<td style="text-align: center;">Adjusted Net Yards per Attempt</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4QC</td>
+<td style="text-align: center;">Fourth Quarter Comebacks</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GWD</td>
+<td style="text-align: center;">Game-Winning Drives</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IAY</td>
+<td style="text-align: center;">Intended Air Yards</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IAY/PA</td>
+<td style="text-align: center;">Intended Air Yards per Attempt</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CAY</td>
+<td style="text-align: center;">Completed Air Yards</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CAY/Cmp</td>
+<td style="text-align: center;">Completed Air Yards per Completion</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CAY/PA</td>
+<td style="text-align: center;">Completed Air Yards per Attempt</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">YAC</td>
+<td style="text-align: center;">Yards After Catch</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">YAC/Cmp</td>
+<td style="text-align: center;">Yards After Catch per Completion</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bats</td>
+<td style="text-align: center;">Passes Batted</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ThAwy</td>
+<td style="text-align: center;">Throw Aways</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spikes</td>
+<td style="text-align: center;">Spikes</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Drops</td>
+<td style="text-align: center;">Drops</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Drop%</td>
+<td style="text-align: center;">Drop Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BadTh</td>
+<td style="text-align: center;">Bad Throws</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bad%</td>
+<td style="text-align: center;">Bad Throw Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OnTgt</td>
+<td style="text-align: center;">On Target Throws</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OnTgt%</td>
+<td style="text-align: center;">On Target Throws Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PktTime</td>
+<td style="text-align: center;">Time In</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bltz</td>
+<td style="text-align: center;">Blitzes</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hrry</td>
+<td style="text-align: center;">Hurries</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hits</td>
+<td style="text-align: center;">Hits</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Prss</td>
+<td style="text-align: center;">Pressures</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Prss%</td>
+<td style="text-align: center;">Pressure Percentage</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Scrm</td>
+<td style="text-align: center;">Scrambles</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yds/Scr</td>
+<td style="text-align: center;">Yards per Scramble</td>
+<td style="text-align: right;">Numeric</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="statistical-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>

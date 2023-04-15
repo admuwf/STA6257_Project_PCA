@@ -40,6 +40,11 @@ In conclusion, PCA is a powerful statistical method for reducing the dimensional
 
 ### Methods
 
+Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data. A PCA analysis allows us to reduce the number of variables in a dataset, which allows us to easily identify relationships between the variables. A byproduct of this is easily visualizable data. 
+	The first step in a PCA is to normalize the data. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. We then need to calculate the covariance matrix for the dataset. The covariance matrix is used to determine how correlated the variables in a dataset are. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. After we determine the eigenvalues and vectors,  we have to find how many principal components to keep. This varies greatly depending on the goals of the analysis. In this analysis we determined that two was adequate. After finding the principal components we can interpret the results.
+
+### Old Methods
+
 PCA leverages an unsupervised linear transformation to perform feature extraction and dimensionality reduction. It is recommended to use PCA when dealing with strongly correlated variables. The PCA that we are running will be used to explore the dataset.  
 
 In order to run a PCA analysis we first had to normalize the data. The data we were able to get offline was incomplete for some quarterbacks. We had to fill in the stats with zero if that variable had been blank. We then had to remove any variable with any nonlinear data. We then normalized the data using the scale function. After the data was normalized we could move onto the actual analysis. 
@@ -61,9 +66,57 @@ knitr::kable(
 )
 ```
 
-A table of variable definitions can be found below.
-
-Table of variables go here
+| Variable | Description | Type |
+|:---------|:-----------:|-----:|
+| G        | Games Played | Numeric |
+| GS       | Games Started | Numeric |
+| Cmp      | Completions | Numeric |
+| Att      | Attempts | Numeric |
+| Cmp%     | Completion Percentage | Numeric |
+| Yds      | Yards | Numeric |
+| TD       | Touchdowns | Numeric |
+| TD%      | Touchdown Percentage | Numeric |
+| Int      | Interceptions | Numeric |
+| Int%     | Interception Percentage | Numeric |
+| 1D       | First Downs | Numeric |
+| Lng      | Longest Completion | Numeric |
+| Y/A      | Yards per Attempt | Numeric |
+| AY/A     | Adjusted Yards per Attempt | Numeric |
+| Y/C      | Yards per Completion | Numeric |
+| Y/G      | Yards per Game | Numeric |
+| Rate     | Passer Rating | Numeric |
+| QBR      | Quarterback Rating | Numeric |
+| Sk       | Sacks | Numeric |
+| Yds      | Sack Yards | Numeric |
+| Sk%      | Sack Percentage | Numeric |
+| NY/A     | Net Yards per Attempt | Numeric |
+| ANY/A    | Adjusted Net Yards per Attempt | Numeric |
+| 4QC      | Fourth Quarter Comebacks | Numeric |
+| GWD      | Game-Winning Drives | Numeric |
+| IAY      | Intended Air Yards | Numeric |
+| IAY/PA   | Intended Air Yards per Attempt | Numeric |
+| CAY      | Completed Air Yards | Numeric |
+| CAY/Cmp  | Completed Air Yards per Completion | Numeric |
+| CAY/PA   | Completed Air Yards per Attempt | Numeric |
+| YAC      | Yards After Catch | Numeric |
+| YAC/Cmp  | Yards After Catch per Completion | Numeric |
+| Bats     | Passes Batted | Numeric |
+| ThAwy    | Throw Aways | Numeric |
+| Spikes   | Spikes | Numeric |
+| Drops    | Drops | Numeric |
+| Drop%    | Drop Percentage | Numeric |
+| BadTh    | Bad Throws | Numeric |
+| Bad%     | Bad Throw Percentage | Numeric |
+| OnTgt    | On Target Throws | Numeric |
+| OnTgt%   | On Target Throws Percentage | Numeric |
+| PktTime  | Time In | Numeric |
+| Bltz     | Blitzes | Numeric |
+| Hrry     | Hurries | Numeric |
+| Hits     | Hits | Numeric |
+| Prss     | Pressures | Numeric |
+| Prss%    | Pressure Percentage | Numeric |
+| Scrm     | Scrambles | Numeric |
+| Yds/Scr  | Yards per Scramble | Numeric |
 
 ### Statistical Modeling
 
