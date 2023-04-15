@@ -270,13 +270,13 @@ div.csl-indent {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>numerical_data <span class="ot">=</span> our_data[,<span class="dv">2</span><span class="sc">:</span><span class="dv">51</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data_normalized <span class="ot">=</span> <span class="fu">scale</span>(numerical_data)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="ot">=</span> <span class="fu">cor</span>(data_normalized)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(corr_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(corr_matrix, <span class="at">tl.cex =</span> <span class="dv">5</span>,<span class="at">tl.srt =</span> <span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-corr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-corr-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Figure 1: Correlation Matrix</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Correlation Matrix</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -292,7 +292,7 @@ div.csl-indent {
 <div id="fig-Scree" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-Scree-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Figure 2: Scree Plot</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Scree Plot</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -307,7 +307,7 @@ div.csl-indent {
 <div id="fig-biplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-biplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Figure 3: Biplot</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Biplot</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -322,7 +322,7 @@ div.csl-indent {
 <div id="fig-cos" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-cos-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Figure 4: Cos2 graph</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Cos2 graph</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -339,7 +339,7 @@ div.csl-indent {
 <div id="fig-comb" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-comb-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Figure 5: Cos2 graph</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: Cos2 graph</figcaption><p></p>
 </figure>
 </div>
 </div>

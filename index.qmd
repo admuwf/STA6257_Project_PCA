@@ -67,12 +67,13 @@ knitr::kable(
 ```{r}
 #| label: fig-corr
 #| fig-cap:
-#|   - "Figure 1: Correlation Matrix"
+#|   - "Correlation Matrix"
 our_data[is.na(our_data)] = 0
 numerical_data = our_data[,2:51]
 data_normalized = scale(numerical_data)
 corr_matrix = cor(data_normalized)
-ggcorrplot(corr_matrix)
+ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
+  
 ```
 
 
@@ -81,7 +82,7 @@ ggcorrplot(corr_matrix)
 ```{r}
 #| label: fig-Scree
 #| fig-cap: 
-#|   - "Figure 2: Scree Plot"
+#|   - "Scree Plot"
 
 data.pca = princomp(corr_matrix)
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
@@ -92,7 +93,7 @@ This first plot is a scree plot. This is used to visualize the importance of eac
 ```{r}
 #| label: fig-biplot
 #| fig-cap: 
-#|   - "Figure 3: Biplot"
+#|   - "Biplot"
 
 fviz_pca_var(data.pca, col.var = "black")
 ```
@@ -102,7 +103,7 @@ Figure 3 is a biplot of the attributes. The biplot can visualize the similaritie
 ```{r}
 #| label: fig-cos
 #| fig-cap: 
-#|   - "Figure 4: Cos2 graph"
+#|   - "Cos2 graph"
 
 fviz_cos2(data.pca, choice = "var", axes = 1:2)
 ```
@@ -112,7 +113,7 @@ The third graph is a Cos2 graph and corresponds to the square cosine. This visua
 ```{r}
 #| label: fig-comb
 #| fig-cap: 
-#|   - "Figure 5: Cos2 graph"
+#|   - "Cos2 graph"
 
 fviz_pca_var(data.pca, col.var = "cos2",
             gradient.cols = c("goldenrod1", "indianred",  "cornflowerblue"),
