@@ -54,10 +54,20 @@ We are looking at advanced passing stats for the 2022 - 2023 NFL calendar year. 
 
 
 ```{r}
+our_data = read.csv("NFL_Data.csv")
+
+knitr::kable(
+  our_data[1:3, 1:10], caption = 'Original 2022 NFL Data.'
+)
+```
+
+
+
+
+```{r}
+#| label: fig-corr
 #| fig-cap:
 #|   - "Figure 1: Correlation Matrix"
-
-our_data = read.csv("NFL_Data.csv")
 our_data[is.na(our_data)] = 0
 numerical_data = our_data[,2:51]
 data_normalized = scale(numerical_data)
@@ -66,9 +76,10 @@ ggcorrplot(corr_matrix)
 ```
 
 
-
+@fig-corr looks at the correlation between variables
 
 ```{r}
+#| label: fig-Scree
 #| fig-cap: 
 #|   - "Figure 2: Scree Plot"
 
@@ -79,6 +90,7 @@ fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal comp
 This first plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. The first two components can be considered the most significant since they contain almost 91% of the total information of the data.
 
 ```{r}
+#| label: fig-biplot
 #| fig-cap: 
 #|   - "Figure 3: Biplot"
 
@@ -88,6 +100,7 @@ fviz_pca_var(data.pca, col.var = "black")
 Figure 3 is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. Our graph has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.
 
 ```{r}
+#| label: fig-cos
 #| fig-cap: 
 #|   - "Figure 4: Cos2 graph"
 
@@ -97,6 +110,7 @@ fviz_cos2(data.pca, choice = "var", axes = 1:2)
 The third graph is a Cos2 graph and corresponds to the square cosine. This visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.  
 
 ```{r}
+#| label: fig-comb
 #| fig-cap: 
 #|   - "Figure 5: Cos2 graph"
 
