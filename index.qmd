@@ -48,7 +48,7 @@ After the dataset was normalized we ran it through a correlation matrix. A corre
 
 The correlation matrix is then run through the principal component to get the PCA values. The summary table shows the results of the PCA values. 
 
-### Data and Vizualisation
+### Data
 
 We are looking at advanced passing stats for the 2022 - 2023 NFL calendar year. The data was found on pro-football-reference.com. We looked at common NFL stats such as touchdowns, interceptions, and yards while also looking at less used stats such as on target % and how much time they had in the pocket. By having over fifty variables a PCA is the best way to summarize the large data set.  
 
@@ -61,8 +61,11 @@ knitr::kable(
 )
 ```
 
+A table of variable definitions can be found below.
 
+Table of variables go here
 
+### Statistical Modeling
 
 ```{r}
 #| label: fig-corr
