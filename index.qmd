@@ -59,6 +59,11 @@ our_data[is.na(our_data)] = 0
 numerical_data = our_data[,2:51]
 data_normalized = scale(numerical_data)
 corr_matrix = cor(data_normalized)
+```
+
+```{r}
+#| fig-cap: 
+#|   - "Figure 1: Correlation Matrix"
 ggcorrplot(corr_matrix)
 ```
 
