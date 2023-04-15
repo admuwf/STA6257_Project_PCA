@@ -89,7 +89,7 @@ Figure 3 is a biplot of the attributes. The biplot can visualize the similaritie
 
 ```{r}
 #| fig-cap: 
-#|   - "Figure 5: Cos2 graph"
+#|   - "Figure 4: Cos2 graph"
 
 fviz_cos2(data.pca, choice = "var", axes = 1:2)
 ```
