@@ -214,147 +214,33 @@ div.csl-indent {
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data.pca <span class="ot">=</span> <span class="fu">princomp</span>(corr_matrix)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Importance of components:
-                          Comp.1    Comp.2     Comp.3     Comp.4     Comp.5
-Standard deviation     1.9535398 0.9144781 0.36833720 0.36063536 0.22811970
-Proportion of Variance 0.7455282 0.1633677 0.02650396 0.02540716 0.01016588
-Cumulative Proportion  0.7455282 0.9088959 0.93539982 0.96080699 0.97097287
-                            Comp.6      Comp.7      Comp.8      Comp.9
-Standard deviation     0.196138587 0.168259053 0.143968290 0.118130113
-Proportion of Variance 0.007515288 0.005530653 0.004049051 0.002726094
-Cumulative Proportion  0.978488157 0.984018810 0.988067861 0.990793954
-                           Comp.10     Comp.11    Comp.12      Comp.13
-Standard deviation     0.104407138 0.096556411 0.08369692 0.0673521255
-Proportion of Variance 0.002129511 0.001821301 0.00136848 0.0008861804
-Cumulative Proportion  0.992923465 0.994744766 0.99611325 0.9969994270
-                            Comp.14      Comp.15      Comp.16      Comp.17
-Standard deviation     0.0615770329 0.0491537960 0.0467594234 0.0390312282
-Proportion of Variance 0.0007407251 0.0004719909 0.0004271278 0.0002976076
-Cumulative Proportion  0.9977401521 0.9982121431 0.9986392708 0.9989368784
-                            Comp.18      Comp.19      Comp.20      Comp.21
-Standard deviation     0.0357054972 0.0327615015 0.0268181920 0.0254941863
-Proportion of Variance 0.0002490518 0.0002096752 0.0001405007 0.0001269702
-Cumulative Proportion  0.9991859302 0.9993956055 0.9995361062 0.9996630764
-                            Comp.22      Comp.23      Comp.24      Comp.25
-Standard deviation     0.0225673524 1.723099e-02 1.503319e-02 1.297598e-02
-Proportion of Variance 0.0000994903 5.800163e-05 4.414907e-05 3.289273e-05
-Cumulative Proportion  0.9997625667 9.998206e-01 9.998647e-01 9.998976e-01
-                            Comp.26      Comp.27      Comp.28      Comp.29
-Standard deviation     1.080084e-02 9.666571e-03 9.341219e-03 8.271532e-03
-Proportion of Variance 2.278948e-05 1.825427e-05 1.704616e-05 1.336569e-05
-Cumulative Proportion  9.999204e-01 9.999387e-01 9.999557e-01 9.999691e-01
-                            Comp.30      Comp.31      Comp.32      Comp.33
-Standard deviation     7.303684e-03 5.744775e-03 4.605028e-03 3.989226e-03
-Proportion of Variance 1.042086e-05 6.447119e-06 4.142705e-06 3.108829e-06
-Cumulative Proportion  9.999795e-01 9.999859e-01 9.999901e-01 9.999932e-01
-                            Comp.34      Comp.35      Comp.36      Comp.37
-Standard deviation     3.561958e-03 2.722861e-03 2.597612e-03 2.427665e-03
-Proportion of Variance 2.478547e-06 1.448340e-06 1.318160e-06 1.151323e-06
-Cumulative Proportion  9.999957e-01 9.999971e-01 9.999984e-01 9.999996e-01
-                            Comp.38      Comp.39      Comp.40      Comp.41
-Standard deviation     9.629111e-04 7.555849e-04 6.401678e-04 4.442343e-04
-Proportion of Variance 1.811306e-07 1.115285e-07 8.005846e-08 3.855171e-08
-Cumulative Proportion  9.999998e-01 9.999999e-01 1.000000e+00 1.000000e+00
-                            Comp.42      Comp.43      Comp.44      Comp.45
-Standard deviation     1.893467e-04 2.356664e-05 1.094834e-05 3.710786e-06
-Proportion of Variance 7.003819e-09 1.084963e-10 2.341616e-11 2.689995e-12
-Cumulative Proportion  1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00
-                            Comp.46      Comp.47 Comp.48 Comp.49 Comp.50
-Standard deviation     2.702178e-06 1.156672e-08       0       0       0
-Proportion of Variance 1.426420e-12 2.613605e-17       0       0       0
-Cumulative Proportion  1.000000e+00 1.000000e+00       1       1       1</code></pre>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data.pca<span class="sc">$</span>loadings[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>              Comp.1       Comp.2
-G        0.090646676  0.040886053
-GS       0.134135465 -0.011140757
-Cmp      0.202129686 -0.014282180
-Att      0.202996167 -0.013163299
-Cmp.    -0.016837100 -0.298009418
-Yds      0.200926250 -0.017757417
-TD       0.190357340 -0.020874249
-TD.     -0.063641401 -0.145645178
-Int      0.187293718  0.000193361
-Int.    -0.013157466  0.242466225
-X1D      0.199896590 -0.017723770
-Lng      0.113935880 -0.117155121
-Y.A     -0.052141656 -0.274896366
-AY.A    -0.028077698 -0.321168283
-Y.C     -0.027559271 -0.255270471
-Y.G      0.162434123 -0.050523598
-Rate     0.005526171 -0.303386282
-QBR      0.042972246 -0.200450404
-Sk       0.188201356 -0.009790998
-Yds.1    0.187325650 -0.009227685
-Sk.     -0.016672390 -0.071360680
-NY.A    -0.042268934 -0.275079616
-ANY.A   -0.023744284 -0.317546659
-X4QC     0.178555439  0.004175251
-GWD      0.182657326  0.003549912
-IAY      0.200436785 -0.013853884
-IAY.PA  -0.038055285  0.062207993
-CAY      0.198893722 -0.018272560
-CAY.Cmp -0.037108139 -0.212385011
-CAY.PA  -0.057299984 -0.211305776
-YAC      0.199250813 -0.016837032
-YAC.Cmp  0.005251579 -0.142190136
-Bats     0.185538627 -0.011298654
-ThAwy    0.188800328 -0.006002417
-Spikes   0.113233913 -0.005353539
-Drops    0.193170735 -0.011904099
-Drop.    0.038785853  0.009181312
-BadTh    0.197616241 -0.009367490
-Bad.     0.000656302  0.220685263
-OnTgt    0.202226059 -0.014066785
-OnTgt.  -0.006327654 -0.268047138
-Sk.1     0.188201356 -0.009790998
-PktTime  0.045461461  0.069822706
-Bltz     0.199538027 -0.014179429
-Hrry     0.191160560 -0.006582641
-Hits     0.192845819 -0.003847017
-Prss     0.199760831 -0.006737098
-Prss.   -0.005104338  0.097846220
-Scrm     0.152091702 -0.006793362
-Yds.Scr  0.101559897 -0.054354420</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co">#this is a scree plot of the principal component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(data.pca, <span class="at">addlabels =</span> <span class="cn">TRUE</span>) <span class="co">#this is a scree plot of the principal component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"goldenrod1"</span>, <span class="st">"indianred"</span>,  <span class="st">"cornflowerblue"</span>),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(data.pca, <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"goldenrod1"</span>, <span class="st">"indianred"</span>,  <span class="st">"cornflowerblue"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>#Black=Low Cos2 Attributes; Orange=Mid Cos2 Attributes; Green=High Cos2 Attributes</p>

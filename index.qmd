@@ -15,6 +15,7 @@ bibliography: references.bib # file contains bibtex for references
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
+
 ```{r}
 library(ggplot2)
 library(corrr)
@@ -63,12 +64,6 @@ ggcorrplot(corr_matrix)
 
 ```{r}
 data.pca = princomp(corr_matrix)
-summary(data.pca)
-```
-
-```{r}
-data.pca$loadings[, 1:2]
-
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 
 fviz_pca_var(data.pca, col.var = "black")
