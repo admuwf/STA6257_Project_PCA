@@ -148,10 +148,14 @@ data.pca = princomp(corr_matrix)
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 ```
 
-This first plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. The first two components can be considered the most significant since they contain almost 91% of the total information of the data.
+This first plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. The first two components can be considered the most significant since they contain almost 91% of the total information of the data. As oriingally hoped, we will be able to reduce down to 2 Principal Components.
 
 ```{r}
 #trying to add the professors blue dots
+
+#| label: fig-corr
+#| fig-cap:
+#|   - "Biplot"
 
 fviz_pca_biplot(data.pca,
 geom.ind="point",
@@ -165,6 +169,10 @@ repel=TRUE,
 xlab="PC 1",
 ylab="PC 2")
 ```
+
+
+Each point indicates an individual player so there is no need to color the points. However, we do see clusters of players around the axis.
+
 
 ```{r}
 #| label: fig-biplot
@@ -199,7 +207,10 @@ This graph is a combination of the last 2 graphs, the biplot and the Cos2. This 
 
 ### Conclusion
 
-In conclusion,there really isn't a perfect way to choose the number of principal components are needed/wanted. One common method is to examine the scree plot. Thus, to identify where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. Another way is to decide on the proportion of variance that is explained as a cutoff, like 90%. In our data, you can see that the first two principal components achieve both of these benchmarks. This makes choosing the first 2 easy, as they account for 91% of the proportion of the variance explained and the drop off is fairly significant to the third principal component. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components. That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, this will reduce the dimensionality and then an easier, more cost efficient, and less needed computer resources analysis can be performed.  
+In conclusion, using the 2022 seaon data for the National Football League we were able to reduce dimentionality to 2 Principle Components. We used a Scree Plot to observe that our first 2 Principle Components explained 90.9% of the variance. This was 0.9% greater than our predetermined cutoff. While we used the method of predetermining a cutoff percentage, there were other ways to determine how many Principle Components to use. We could also have identified where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. This would have been at Principle Component 2. In our data, you can see that the first two principal components achieve both of these benchmarks. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components. 
+
+
+That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, we are left with an easier data set that can be analyzed more efficiently.
 
 ### References
 
