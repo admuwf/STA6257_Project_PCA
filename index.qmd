@@ -167,7 +167,6 @@ labelsize=5,
 repel=TRUE,
 xlab="PC 1",
 ylab="PC 2")
-
 ```
 
 ```{r}
