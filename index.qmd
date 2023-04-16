@@ -140,7 +140,6 @@ ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
   
 ```
 
-
 @fig-corr looks at the correlation between variables
 
 ```{r}
@@ -154,10 +153,25 @@ fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal comp
 
 This first plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. The first two components can be considered the most significant since they contain almost 91% of the total information of the data.
 
-
 ```{r}
+#trying to add the professors blue dots
 biplot(data.pca,
 col = c('darkblue'),scale = 0, xlabs = rep("*", 50))
+
+
+
+fviz_pca_biplot(data.pca,
+geom.ind="point",
+col.ind="cos2",
+pointshape=21,pointsize=2,
+mean.point=FALSE,
+alpha.var="contrib",col.var="contrib",
+gradient.cols=c("#00AFBB","#E7B800","#FC4E07"),
+labelsize=5,
+repel=TRUE,
+xlab="PC 1",
+ylab="PC 2")
+
 ```
 
 ```{r}
