@@ -117,10 +117,10 @@ Below there is a tabel describing the variables
 | PktTime  | Time In | Numeric |
 | Bltz     | Times the Player Faced Blitzes | Numeric |
 | Hrry     | Hurries | Numeric |
-| Hits     | Times Hit by Defense | Numeric |
+| Hits     | Times Hit by Defense During Pass| Numeric |
 | Prss     | Plays with Quaterback Pressures | Numeric |
 | Prss%    | Percentage of Plays Pressured | Numeric |
-| Scrm     | Pass Plays resulting in the Quarterback Rushing | Numeric |
+| Scrm     | Pass Plays Resulting in the Quarterback Rushing | Numeric |
 | Yds/Scr  | Rush Yards per Scramble | Numeric |
 
 ### Statistical Modeling
