@@ -125,6 +125,8 @@ Below there is a tabel describing the variables
 
 ### Statistical Modeling
 
+From the start, our group set out with the hope of reducing dimensionality to 2 Principle Components. We have a predetermined cuttoff of 90% for explained variance. As mentioned in the Introduction, several past articles were able to reduce their sports data dimensionality to 2 Principle Components. We hope to find similar success. With hope, we begin by creating a correlation matrix.
+
 ```{r}
 #| label: fig-corr
 #| fig-cap:
@@ -137,7 +139,7 @@ ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
   
 ```
 
-@fig-corr looks at the correlation between variables. After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix  This table displays the correlation coefficients between the variables in a data set.
+@fig-corr looks at the correlation between variables. After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix  This table displays the correlation coefficients between the variables in a data set. The data in this correlation matrix can now be passed through the PCA function and graphed to show the Principle Components.
 
 ```{r}
 #| label: fig-Scree
@@ -148,12 +150,10 @@ data.pca = princomp(corr_matrix)
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 ```
 
-This first plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. The first two components can be considered the most significant since they contain almost 91% of the total information of the data. As oriingally hoped, we will be able to reduce down to 2 Principal Components.
+This second plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components can be considered the most significant since they contain almost 91% of the total information of the data. We will be able to reduce down to 2 Principal Components. The next step is to reduce the data down and plot the data in a BiPlot fitting the Prinicple Components to the X and Y axis.
 
 ```{r}
-#trying to add the professors blue dots
-
-#| label: fig-corr
+#| label: fig-BIDot
 #| fig-cap:
 #|   - "Biplot"
 

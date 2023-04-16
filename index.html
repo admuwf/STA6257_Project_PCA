@@ -532,6 +532,7 @@ div.csl-indent {
 </section>
 <section id="statistical-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
+<p>From the start, our group set out with the hope of reducing dimensionality to 2 Principle Components. We have a predetermined cuttoff of 90% for explained variance. As mentioned in the Introduction, several past articles were able to reduce their sports data dimensionality to 2 Principle Components. We hope to find similar success. With hope, we begin by creating a correlation matrix.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -550,7 +551,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p><a href="#fig-corr">Figure&nbsp;1</a> looks at the correlation between variables. After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix This table displays the correlation coefficients between the variables in a data set.</p>
+<p><a href="#fig-corr">Figure&nbsp;1</a> looks at the correlation between variables. After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix This table displays the correlation coefficients between the variables in a data set. The data in this correlation matrix can now be passed through the PCA function and graphed to show the Principle Components.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -566,28 +567,32 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>This first plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. The first two components can be considered the most significant since they contain almost 91% of the total information of the data.</p>
+<p>This second plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components can be considered the most significant since they contain almost 91% of the total information of the data. We will be able to reduce down to 2 Principal Components. The next step is to reduce the data down and plot the data in a BiPlot fitting the Prinicple Components to the X and Y axis.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#trying to add the professors blue dots</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(data.pca,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">geom.ind=</span><span class="st">"point"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">col.ind=</span><span class="st">"cos2"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">pointshape=</span><span class="dv">21</span>,<span class="at">pointsize=</span><span class="dv">2</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">mean.point=</span><span class="cn">FALSE</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">alpha.var=</span><span class="st">"contrib"</span>,<span class="at">col.var=</span><span class="st">"contrib"</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">gradient.cols=</span><span class="fu">c</span>(<span class="st">"#00AFBB"</span>,<span class="st">"#E7B800"</span>,<span class="st">"#FC4E07"</span>),</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">labelsize=</span><span class="dv">5</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">repel=</span><span class="cn">TRUE</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">xlab=</span><span class="st">"PC 1"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">ylab=</span><span class="st">"PC 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(data.pca,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">geom.ind=</span><span class="st">"point"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">col.ind=</span><span class="st">"cos2"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">pointshape=</span><span class="dv">21</span>,<span class="at">pointsize=</span><span class="dv">2</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">mean.point=</span><span class="cn">FALSE</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">alpha.var=</span><span class="st">"contrib"</span>,<span class="at">col.var=</span><span class="st">"contrib"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">gradient.cols=</span><span class="fu">c</span>(<span class="st">"#00AFBB"</span>,<span class="st">"#E7B800"</span>,<span class="st">"#FC4E07"</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">labelsize=</span><span class="dv">5</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">repel=</span><span class="cn">TRUE</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">xlab=</span><span class="st">"PC 1"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">ylab=</span><span class="st">"PC 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div id="fig-BIDot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-BIDot-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Biplot</figcaption><p></p>
+</figure>
 </div>
 </div>
+</div>
+<p>Each point indicates an individual player so there is no need to color the points. However, we do see clusters of players around the axis.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -597,7 +602,7 @@ div.csl-indent {
 <div id="fig-biplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-biplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Biplot</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4: Biplot</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -612,7 +617,7 @@ div.csl-indent {
 <div id="fig-cos" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-cos-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;4: Cos2 graph</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: Cos2 graph</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -629,7 +634,7 @@ div.csl-indent {
 <div id="fig-comb" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-comb-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Cos2 graph</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6: Cos2 graph</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -638,7 +643,8 @@ div.csl-indent {
 </section>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>In conclusion,there really isn’t a perfect way to choose the number of principal components are needed/wanted. One common method is to examine the scree plot. Thus, to identify where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. Another way is to decide on the proportion of variance that is explained as a cutoff, like 90%. In our data, you can see that the first two principal components achieve both of these benchmarks. This makes choosing the first 2 easy, as they account for 91% of the proportion of the variance explained and the drop off is fairly significant to the third principal component. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components. That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, this will reduce the dimensionality and then an easier, more cost efficient, and less needed computer resources analysis can be performed.</p>
+<p>In conclusion, using the 2022 seaon data for the National Football League we were able to reduce dimentionality to 2 Principle Components. We used a Scree Plot to observe that our first 2 Principle Components explained 90.9% of the variance. This was 0.9% greater than our predetermined cutoff. While we used the method of predetermining a cutoff percentage, there were other ways to determine how many Principle Components to use. We could also have identified where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. This would have been at Principle Component 2. In our data, you can see that the first two principal components achieve both of these benchmarks. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components.</p>
+<p>That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, we are left with an easier data set that can be analyzed more efficiently.</p>
 </section>
 <section id="references" class="level3 unnumbered">
 
