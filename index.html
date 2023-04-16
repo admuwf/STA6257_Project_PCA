@@ -592,7 +592,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Each point indicates an individual player so there is no need to color the points. However, we do see clusters of players around the axis.</p>
+<p>Each point indicates an individual player so there is no need to color the points as no two points represent any grouped observations. However, we do see clusters of players around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explanined variance from PC1 to PC2. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constucted, <a href="#fig-biplot">Figure&nbsp;4</a>, without the Player points to give a closer look at the variables themselves.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -607,22 +607,22 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Figure 3 is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. Our graph has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.</p>
+<p>Figure 4 is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. Our graph has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cos2</span>(data.pca, <span class="at">choice =</span> <span class="st">"var"</span>,<span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-cos" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-cos-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5: Cos2 graph</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5: Cos2 Graph</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The third graph is a Cos2 graph and corresponds to the square cosine. This visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.</p>
+<p>Figure 5 is a Cos2 graph and corresponds to the square cosine. This visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -634,16 +634,16 @@ div.csl-indent {
 <div id="fig-comb" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="index_files/figure-html/fig-comb-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6: Cos2 graph</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6: Combination BiPlot</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This graph is a combination of the last 2 graphs, the biplot and the Cos2. This uses the biplot graph and then enhances it with color based on the Cos2 values. This has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before. The colors show that the best representation of variables are the blue/purple on the far right, and this is best represented by Dim1 or principal component1. The red values are the next best representation and are best represented in the second principal component.</p>
+<p>This graph is a combination of the last 2 graphs, the biplot and the Cos2. This uses the biplot graph and then enhances it with color based on the Cos2 values. This has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before. The colors show that the best representation of variables are the blue and purple on the far right, and this is best represented by Dimension 1 or Principal Component 1. The red values are the next best representation and are best represented by Principle Component 2. It is expencted to see a higher representation around the X axis, Principle Component 1.</p>
 </section>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>In conclusion, using the 2022 seaon data for the National Football League we were able to reduce dimentionality to 2 Principle Components. We used a Scree Plot to observe that our first 2 Principle Components explained 90.9% of the variance. This was 0.9% greater than our predetermined cutoff. While we used the method of predetermining a cutoff percentage, there were other ways to determine how many Principle Components to use. We could also have identified where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. This would have been at Principle Component 2. In our data, you can see that the first two principal components achieve both of these benchmarks. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components.</p>
+<p>In conclusion, using the 2022 season data for the National Football League we were able to reduce dimentionality to 2 Principle Components. We used a Scree Plot to observe that our first 2 Principle Components explained 90.9% of the variance. This was 0.9% greater than our predetermined cutoff. While we used the method of predetermining a cutoff percentage, there were other ways to determine how many Principle Components to use. We could also have identified where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. This would have been at Principle Component 2. In our data, you can see that the first two principal components achieve both of these benchmarks. What we have accomplished is starting with 50 variables and reducing the dimensionality all the way to two variables that account for 91% of the variance explained. Next steps would be to transform the original data by the principal components.</p>
 <p>That is FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet), where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, we are left with an easier data set that can be analyzed more efficiently.</p>
 </section>
 <section id="references" class="level3 unnumbered">
