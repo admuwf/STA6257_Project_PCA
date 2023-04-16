@@ -60,7 +60,7 @@ https://www.pro-football-reference.com/years/2022/passing.htm
 2022 National Football League Quarteback Advanced Passing Data
 https://www.pro-football-reference.com/years/2022/passing_advanced.htm
 
-We are looking at advanced passing stats for the 2022 - 2023 NFL calendar year. The data was found on pro-football-reference.com. We looked at common NFL stats such as touchdowns, interceptions, and yards while also looking at less used stats such as on target % and how much time they had in the pocket. By having over fifty variables a PCA is the best way to summarize the large data set.  
+Our dataset is a combination of the two datasets found in the links above. We have combined typical passing data with advanced passing stats for the 2022 - 2023 NFL calendar year. We looked at common NFL stats such as touchdowns, interceptions, and yards while also looking at less used stats such as on target percentage and how much time they had in the pocket. Our dataset includes over fifty variables. A PCA is the best way to summarize the large data set. We hope to reduce the dimentionality with 2 Principle components.
 
 
 ```{r}
