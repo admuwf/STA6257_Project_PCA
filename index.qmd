@@ -55,6 +55,9 @@ The correlation matrix is then run through the principal component to get the PC
 
 ### Data
 
+https://www.pro-football-reference.com/years/2022/passing.htm
+https://www.pro-football-reference.com/years/2022/passing_advanced.htm
+
 We are looking at advanced passing stats for the 2022 - 2023 NFL calendar year. The data was found on pro-football-reference.com. We looked at common NFL stats such as touchdowns, interceptions, and yards while also looking at less used stats such as on target % and how much time they had in the pocket. By having over fifty variables a PCA is the best way to summarize the large data set.  
 
 
@@ -72,53 +75,53 @@ Below there is a tabel describing the variables
 |:---------|:-----------:|-----:|
 | G        | Games Played | Numeric |
 | GS       | Games Started | Numeric |
-| Cmp      | Completions | Numeric |
-| Att      | Attempts | Numeric |
-| Cmp%     | Completion Percentage | Numeric |
-| Yds      | Yards | Numeric |
-| TD       | Touchdowns | Numeric |
-| TD%      | Touchdown Percentage | Numeric |
-| Int      | Interceptions | Numeric |
-| Int%     | Interception Percentage | Numeric |
-| 1D       | First Downs | Numeric |
-| Lng      | Longest Completion | Numeric |
-| Y/A      | Yards per Attempt | Numeric |
+| Cmp      | Completed Passes | Numeric |
+| Att      | Attempted Passes | Numeric |
+| Cmp%     | Percentage of Attempts Completed | Numeric |
+| Yds      | Yards Gained by Passing | Numeric |
+| TD       | Touchdowns Scored by Passing | Numeric |
+| TD%      | Percentage of Attempts Scoring TD | Numeric |
+| Int      | Attempt Intercepted by Defense | Numeric |
+| Int%     | Percentage of Attempts Intercepted | Numeric |
+| 1D       | Attempt Resulted in a First Down | Numeric |
+| Lng      | Longest Completed Pass | Numeric |
+| Y/A      | Yard gained per Attempt | Numeric |
 | AY/A     | Adjusted Yards per Attempt | Numeric |
-| Y/C      | Yards per Completion | Numeric |
-| Y/G      | Yards per Game | Numeric |
+| Y/C      | Yards Gained per Completion | Numeric |
+| Y/G      | Yards Gained per Game | Numeric |
 | Rate     | Passer Rating | Numeric |
 | QBR      | Quarterback Rating | Numeric |
-| Sk       | Sacks | Numeric |
-| Yds      | Sack Yards | Numeric |
-| Sk%      | Sack Percentage | Numeric |
+| Sk       | Sacks taken by Player | Numeric |
+| Sk Yds   | Yards lost from Sacks | Numeric |
+| Sk%      | Percentage of Plays resulting in sack | Numeric |
 | NY/A     | Net Yards per Attempt | Numeric |
 | ANY/A    | Adjusted Net Yards per Attempt | Numeric |
 | 4QC      | Fourth Quarter Comebacks | Numeric |
-| GWD      | Game-Winning Drives | Numeric |
-| IAY      | Intended Air Yards | Numeric |
+| GWD      | Game-Winning Drives Led by Quarterback | Numeric |
+| IAY      | Intended Air Yards (Completed and Incompleted) | Numeric |
 | IAY/PA   | Intended Air Yards per Attempt | Numeric |
 | CAY      | Completed Air Yards | Numeric |
 | CAY/Cmp  | Completed Air Yards per Completion | Numeric |
 | CAY/PA   | Completed Air Yards per Attempt | Numeric |
-| YAC      | Yards After Catch | Numeric |
+| YAC      | Yards Gained After Catch | Numeric |
 | YAC/Cmp  | Yards After Catch per Completion | Numeric |
-| Bats     | Passes Batted | Numeric |
-| ThAwy    | Throw Aways | Numeric |
+| Bats     | Passes Batted Down by Defense | Numeric |
+| ThAwy    | Passes Thrown Away y Defense | Numeric |
 | Spikes   | Spikes | Numeric |
-| Drops    | Drops | Numeric |
+| Drops    | Passes Dropped by Receivers | Numeric |
 | Drop%    | Drop Percentage | Numeric |
-| BadTh    | Bad Throws | Numeric |
+| BadTh    | Incomplete Passes due to Bad Throws | Numeric |
 | Bad%     | Bad Throw Percentage | Numeric |
 | OnTgt    | On Target Throws | Numeric |
 | OnTgt%   | On Target Throws Percentage | Numeric |
 | PktTime  | Time In | Numeric |
-| Bltz     | Blitzes | Numeric |
+| Bltz     | Times the Player Faced Blitzes | Numeric |
 | Hrry     | Hurries | Numeric |
-| Hits     | Hits | Numeric |
-| Prss     | Pressures | Numeric |
-| Prss%    | Pressure Percentage | Numeric |
-| Scrm     | Scrambles | Numeric |
-| Yds/Scr  | Yards per Scramble | Numeric |
+| Hits     | Times Hit by Defense | Numeric |
+| Prss     | Plays with Quaterback Pressures | Numeric |
+| Prss%    | Percentage of Plays Pressured | Numeric |
+| Scrm     | Pass Plays resulting in the Quarterback Rushing | Numeric |
+| Yds/Scr  | Rush Yards per Scramble | Numeric |
 
 ### Statistical Modeling
 

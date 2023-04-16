@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Mercer, Curtis Fox, Eddie Pierce">
-<meta name="dcterms.date" content="2023-04-15">
+<meta name="dcterms.date" content="2023-04-16">
 
 <title>PCA Method Review</title>
 <style>
@@ -160,7 +160,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 15, 2023</p>
+      <p class="date">April 16, 2023</p>
     </div>
   </div>
     
@@ -201,6 +201,7 @@ div.csl-indent {
 </section>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>https://www.pro-football-reference.com/years/2022/passing.htm https://www.pro-football-reference.com/years/2022/passing_advanced.htm</p>
 <p>We are looking at advanced passing stats for the 2022 - 2023 NFL calendar year. The data was found on pro-football-reference.com. We looked at common NFL stats such as touchdowns, interceptions, and yards while also looking at less used stats such as on target % and how much time they had in the pocket. By having over fifty variables a PCA is the best way to summarize the large data set.</p>
 <div class="cell">
 <details>
@@ -291,57 +292,57 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Cmp</td>
-<td style="text-align: center;">Completions</td>
+<td style="text-align: center;">Completed Passes</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Att</td>
-<td style="text-align: center;">Attempts</td>
+<td style="text-align: center;">Attempted Passes</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Cmp%</td>
-<td style="text-align: center;">Completion Percentage</td>
+<td style="text-align: center;">Percentage of Attempts Completed</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Yds</td>
-<td style="text-align: center;">Yards</td>
+<td style="text-align: center;">Yards Gained by Passing</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TD</td>
-<td style="text-align: center;">Touchdowns</td>
+<td style="text-align: center;">Touchdowns Scored by Passing</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TD%</td>
-<td style="text-align: center;">Touchdown Percentage</td>
+<td style="text-align: center;">Percentage of Attempts Scoring TD</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Int</td>
-<td style="text-align: center;">Interceptions</td>
+<td style="text-align: center;">Attempt Intercepted by Defense</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Int%</td>
-<td style="text-align: center;">Interception Percentage</td>
+<td style="text-align: center;">Percentage of Attempts Intercepted</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">1D</td>
-<td style="text-align: center;">First Downs</td>
+<td style="text-align: center;">Attempt Resulted in a First Down</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lng</td>
-<td style="text-align: center;">Longest Completion</td>
+<td style="text-align: center;">Longest Completed Pass</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Y/A</td>
-<td style="text-align: center;">Yards per Attempt</td>
+<td style="text-align: center;">Yard gained per Attempt</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
@@ -351,12 +352,12 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Y/C</td>
-<td style="text-align: center;">Yards per Completion</td>
+<td style="text-align: center;">Yards Gained per Completion</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Y/G</td>
-<td style="text-align: center;">Yards per Game</td>
+<td style="text-align: center;">Yards Gained per Game</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
@@ -371,17 +372,17 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sk</td>
-<td style="text-align: center;">Sacks</td>
+<td style="text-align: center;">Sacks taken by Player</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Yds</td>
-<td style="text-align: center;">Sack Yards</td>
+<td style="text-align: left;">Sk Yds</td>
+<td style="text-align: center;">Yards lost from Sacks</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sk%</td>
-<td style="text-align: center;">Sack Percentage</td>
+<td style="text-align: center;">Percentage of Plays resulting in sack</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
@@ -401,12 +402,12 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">GWD</td>
-<td style="text-align: center;">Game-Winning Drives</td>
+<td style="text-align: center;">Game-Winning Drives Led by Quarterback</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">IAY</td>
-<td style="text-align: center;">Intended Air Yards</td>
+<td style="text-align: center;">Intended Air Yards (Completed and Incompleted)</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
@@ -431,7 +432,7 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">YAC</td>
-<td style="text-align: center;">Yards After Catch</td>
+<td style="text-align: center;">Yards Gained After Catch</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
@@ -441,12 +442,12 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bats</td>
-<td style="text-align: center;">Passes Batted</td>
+<td style="text-align: center;">Passes Batted Down by Defense</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ThAwy</td>
-<td style="text-align: center;">Throw Aways</td>
+<td style="text-align: center;">Passes Thrown Away y Defense</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
@@ -456,7 +457,7 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td style="text-align: left;">Drops</td>
-<td style="text-align: center;">Drops</td>
+<td style="text-align: center;">Passes Dropped by Receivers</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
@@ -466,7 +467,7 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td style="text-align: left;">BadTh</td>
-<td style="text-align: center;">Bad Throws</td>
+<td style="text-align: center;">Incomplete Passes due to Bad Throws</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
@@ -491,7 +492,7 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bltz</td>
-<td style="text-align: center;">Blitzes</td>
+<td style="text-align: center;">Times the Player Faced Blitzes</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
@@ -501,27 +502,27 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Hits</td>
-<td style="text-align: center;">Hits</td>
+<td style="text-align: center;">Times Hit by Defense</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Prss</td>
-<td style="text-align: center;">Pressures</td>
+<td style="text-align: center;">Plays with Quaterback Pressures</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Prss%</td>
-<td style="text-align: center;">Pressure Percentage</td>
+<td style="text-align: center;">Percentage of Plays Pressured</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Scrm</td>
-<td style="text-align: center;">Scrambles</td>
+<td style="text-align: center;">Pass Plays resulting in the Quarterback Rushing</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Yds/Scr</td>
-<td style="text-align: center;">Yards per Scramble</td>
+<td style="text-align: center;">Rush Yards per Scramble</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 </tbody>
