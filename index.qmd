@@ -171,13 +171,13 @@ ylab="PC 2")
 ```
 
 
-Each point indicates an individual player so there is no need to color the points as no two points represent any grouped observations.  However, we do see clusters of players around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explanined variance from PC1 to PC2. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constucted, @fig-biplot, without the Player points to give a closer look at the variables themselves.
+Each point indicates an individual player so there is no need to color the points as no two points represent any grouped observations.  However, we do see clusters of players around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explained variance from PC1 to PC2. The variables can be seen grouped by color. The color is related to its Cos2 values. These Cos2 values can be found in [@fig-cos]. The different colors indicate different Cos2 groupings, indicating which variables are best represented by the Principle Components. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constructed, @fig-biplot, without the Player points to give a closer look at the variables themselves.
 
 
 ```{r}
 #| label: fig-biplot
 #| fig-cap: 
-#|   - "Biplot"
+#|   - "Biplot 2"
 
 fviz_pca_var(data.pca, col.var = "black")
 ```
