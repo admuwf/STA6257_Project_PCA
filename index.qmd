@@ -40,17 +40,14 @@ While our data is not related to fantasy sports, it is related to single player'
 ### Methods
 
 Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data. A PCA analysis allows us to reduce the number of variables in a dataset, which allows us to easily identify relationships between the variables. A byproduct of this is easily visualizable data. 
-	The first step in a PCA is to normalize the data. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. We then need to calculate the covariance matrix for the dataset. The covariance matrix is used to determine how correlated the variables in a dataset are. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. After we determine the eigenvalues and vectors,  we have to find how many principal components to keep. This varies greatly depending on the goals of the analysis. In this analysis we determined that two was adequate. After finding the principal components we can interpret the results.
 
-### Old Methods
+The first step in a PCA is to normalize the data. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. Next, any variables missing data were filled with a 0. We then need to calculate the covariance matrix for the dataset. The covariance matrix is used to determine how correlated the variables in a dataset are to each other. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix. The correlation matrix is then run through the principal component to get the PCA values.
+	
+To find the first Principle Component the PCA function takes the average measurement of each variable and plots it to a graph. These points are then moved to the origin of the graph where a line is fit to the data. The PCA functions uses this fit line and measures the distance from the projected point to the  origin. It uses the maximum sum of squared distances of each point to the origin to determine where the line will be fit. The slope of this line provides a linear combination of variables used to find the 1 unit long vector known as the eigenvector of PC1. The values calculated by the PCA function using the slope of the fit line are known as the Loading Scores of PC1. The average of the sums of squares disctance of each point of the fit line to the origin is the Eigenvalue for PC1.
 
-PCA leverages an unsupervised linear transformation to perform feature extraction and dimensionality reduction. It is recommended to use PCA when dealing with strongly correlated variables. The PCA that we are running will be used to explore the dataset.  
+PC2 is found using a perpendicular line to PC1 where it meets the origin. The linear combination of this slope along with our scaling factor then we get the eigenvector for PC2. Again, the eigenvalue for PC2 can be found using the average sum of squares of the distance between the projected points and the origin.  Thsis process is continued until all variables have been completed or until a pre determined number of components have been reached.
 
-In order to run a PCA analysis we first had to normalize the data. The data we were able to get offline was incomplete for some quarterbacks. We had to fill in the stats with zero if that variable had been blank. We then had to remove any variable with any nonlinear data. We then normalized the data using the scale function. After the data was normalized we could move onto the actual analysis. 
-
-After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix  This table displays the correlation coefficients between the variables in a data set.
-
-The correlation matrix is then run through the principal component to get the PCA values. The summary table shows the results of the PCA values. 
+After determining the eigenvalues and vectors, the next step is to find how many principal components to keep. This varies greatly depending on the goals of the analysis. As mentioned in the Introduction, [@holland2008principal] provided 4 ways to determine which Principle Components to keep. The methods are to stop including Principle Components if the increase of variance explained from one variable to the next is minimal. The second is to set a limit for variance explained, possibly 90%, and ignore all PCs after this limit is reached. The third is to use a correlation matrix and eliminate all where the variance is less than 1. Finally, the fourth, is to ignore the last PCs in the list if their variance explained is equal. If 2 Principle Components have explained the predetermined amount of variablility then the computation is stopped there and the plot is rotate so that it aligns with the x and y axis of the graph. The data points are then plotted using this scaled graph.
 
 ### Data
 
@@ -140,7 +137,7 @@ ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
   
 ```
 
-@fig-corr looks at the correlation between variables
+@fig-corr looks at the correlation between variables. After the dataset was normalized we ran it through a correlation matrix. A correlation matrix is a table used to summarize data to compute a PCA (or other analyses). The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix  This table displays the correlation coefficients between the variables in a data set.
 
 ```{r}
 #| label: fig-Scree
