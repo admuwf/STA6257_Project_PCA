@@ -39,23 +39,24 @@ While our data is not related to fantasy sports, it is related to single player'
 
 ### Methods
 
-Equations
-
-Calculation to Normalize Data (Standardization Formula)
-$$ x_{new} = \frac{x - {\mu}}{\sigma}  \tag{1}$$
-
-Calculation of Sample Covariance Matrix
-$$Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T \tag{2}$$
-
-Calculation of Eigenvalues
-$$det(A - \lambda I) = 0 \tag{3}$$
-
-Calculation of Eigenvectors
-$$(A - \lambda I) \cdot v = 0 \tag{4}$$
-
 Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data. A PCA analysis allows us to reduce the number of variables in a dataset, which allows us to easily identify relationships between the variables. A byproduct of this is easily visualizable data. 
 
-The first step in a PCA is to normalize the data using equation 1. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. Next, any variables missing data were filled with a 0. We then need to calculate the covariance matrix for the dataset using equation 2. The covariance matrix is used to determine how correlated the variables in a dataset are to each other. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. These values can be calculated using equation 3 and equation 4 above. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix. The correlation matrix is then run through the principal component to get the PCA values.
+The first step in a PCA is to normalize the data using equation 1.
+
+$$ x_{new} = \frac{x - {\mu}}{\sigma}  \tag{1}$$
+
+A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. Next, any variables missing data were filled with a 0. We then need to calculate the covariance matrix for the dataset using equation 2. 
+
+$$Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T \tag{2}$$
+The covariance matrix is used to determine how correlated the variables in a dataset are to each other. We then would need to calculate the eigenvalues of the covariance matrixusing equation 3.
+
+$$det(A - \lambda I) = 0 \tag{3}$$
+
+Finally, we calculate the eigenvectors of the covariance matrix using equation 4.
+
+$$(A - \lambda I) \cdot v = 0 \tag{4}$$
+
+The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix. The correlation matrix is then run through the principal component to get the PCA values.
 	
 To find the first Principle Component the PCA function takes the average measurement of each variable and plots it to a graph. These points are then moved to the origin of the graph where a line is fit to the data. The PCA functions uses this fit line and measures the distance from the projected point to the  origin. It uses the maximum sum of squared distances of each point to the origin to determine where the line will be fit. The slope of this line provides a linear combination of variables used to find the 1 unit long vector known as the eigenvector of PC1. The values calculated by the PCA function using the slope of the fit line are known as the Loading Scores of PC1. The average of the sums of squares disctance of each point of the fit line to the origin is the Eigenvalue for PC1.
 
@@ -222,12 +223,7 @@ This graph is a combination of the last 2 graphs, the biplot and the Cos2. This 
 
 ### Conclusion
 
-In conclusion, using the 2022 season data for the National Football League we were able to reduce dimentionality to 2 Principle Components. We used a Scree Plot to observe that our first 2 Principle Components explained 90.9% of the variance. This was 0.9% greater than our predetermined cutoff. While we used the method of predetermining a cutoff percentage, there were other ways to determine how many Principle Components to use. We could also have identified where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. This would have been at Principle Component 2. In our data, you can see that the first two principal components achieve both of these benchmarks. We accomplished what we had set out to, by starting with 50 variables and reducing thedimensionality all the way to two Principle Components using the 90% of the variance explained cut off method. If the analysis were to be continued, the next steps would be to use equation 5 to transform the original data by the principal components. That is:
-
-$$
-FinalDataSet=Transpose(FeatureVector)*Transpose(StandardizedOriginalDataSet) \tag{5}
-$$
-where the Feature Vector is simply a matrix that has the eigenvectors of the components that were kept as columns. After the transformation, we are left with an easier data set that can be analyzed more efficiently. At that point real knowledge can be gained from a dataset that originally was too large.
+In conclusion, using the 2022 season data for the National Football League we were able to reduce dimensionality to 2 Principle Components. We used a Scree Plot to observe that our first 2 Principle Components explained 90.9% of the variance. This was 0.9% greater than our predetermined cutoff. While we used the method of predetermining a cutoff percentage, there were other ways to determine how many Principle Components to use. We could also have identified where the point of the proportion of variance explained drops significantly, or what is referred to at the elbow in the plot. This would have been at Principle Component 2. In our data, you can see that the first two principal components achieve both of these benchmarks. We accomplished what we had set out to, by starting with 50 variables and reducing the dimensionality all the way to two Principle Components using the 90% of the variance explained cut off method.
 
 ### References
 
