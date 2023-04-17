@@ -39,6 +39,20 @@ While our data is not related to fantasy sports, it is related to single player'
 
 ### Methods
 
+Equations
+
+Normalize Data(Standardization Formula)
+$$ x_{new} = \frac{x - {\mu}}{\sigma} $$
+
+Sample Covariance Matrix
+$$Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T$$
+
+Eigenvalues
+$$det(A - \lambda I) = 0$$
+
+Eigenvectors
+$$(A - \lambda I) \cdot v = 0$$
+
 Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data. A PCA analysis allows us to reduce the number of variables in a dataset, which allows us to easily identify relationships between the variables. A byproduct of this is easily visualizable data. 
 
 The first step in a PCA is to normalize the data. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. Next, any variables missing data were filled with a 0. We then need to calculate the covariance matrix for the dataset. The covariance matrix is used to determine how correlated the variables in a dataset are to each other. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix. The correlation matrix is then run through the principal component to get the PCA values.

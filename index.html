@@ -118,6 +118,7 @@ div.csl-indent {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -189,6 +190,11 @@ div.csl-indent {
 </section>
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<p>Equations</p>
+<p>Normalize Data(Standardization Formula) <span class="math display">\[ x_{new} = \frac{x - {\mu}}{\sigma} \]</span></p>
+<p>Sample Covariance Matrix <span class="math display">\[Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T\]</span></p>
+<p>Eigenvalues <span class="math display">\[det(A - \lambda I) = 0\]</span></p>
+<p>Eigenvectors <span class="math display">\[(A - \lambda I) \cdot v = 0\]</span></p>
 <p>Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data. A PCA analysis allows us to reduce the number of variables in a dataset, which allows us to easily identify relationships between the variables. A byproduct of this is easily visualizable data.</p>
 <p>The first step in a PCA is to normalize the data. A PCA needs normalized data because if data was based off of actual numerical values we would have the larger variables unfairly influence the results of the analysis. Next, any variables missing data were filled with a 0. We then need to calculate the covariance matrix for the dataset. The covariance matrix is used to determine how correlated the variables in a dataset are to each other. We then would need to calculate the eigenvalues and eigenvectors of the covariance matrix. The eigenvectors are used to determine the direction of the principal components. While the eigenvalues are used to determine the strength of the principal components. The correlation matrix turns the variables into a nxn matrix. In this case there is 50 variables, so it would be a 50x50 matrix. The correlation matrix is then run through the principal component to get the PCA values.</p>
 <p>To find the first Principle Component the PCA function takes the average measurement of each variable and plots it to a graph. These points are then moved to the origin of the graph where a line is fit to the data. The PCA functions uses this fit line and measures the distance from the projected point to the origin. It uses the maximum sum of squared distances of each point to the origin to determine where the line will be fit. The slope of this line provides a linear combination of variables used to find the 1 unit long vector known as the eigenvector of PC1. The values calculated by the PCA function using the slope of the fit line are known as the Loading Scores of PC1. The average of the sums of squares disctance of each point of the fit line to the origin is the Eigenvalue for PC1.</p>
