@@ -489,7 +489,7 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">PktTime</td>
-<td style="text-align: center;">Time In</td>
+<td style="text-align: center;">Time In Pocket</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
@@ -499,7 +499,7 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Hrry</td>
-<td style="text-align: center;">Hurries</td>
+<td style="text-align: center;">Times Hurried by Defense</td>
 <td style="text-align: right;">Numeric</td>
 </tr>
 <tr class="even">
@@ -567,18 +567,18 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>This second plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components can be considered the most significant since they contain almost 91% of the total information of the data. We will be able to reduce down to 2 Principal Components. The next step is to reduce the data down and plot the data in a BiPlot fitting the Prinicple Components to the X and Y axis.</p>
+<p>This second plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components, seen in <a href="#fig-Scree">Figure&nbsp;2</a> can be considered the most significant since they contain almost 91% of the total information of the data. We will be able to reduce down to 2 Principal Components. The next step is to reduce the data down and plot the data in a BiPlot fitting the Prinicple Components to the X and Y axis.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(data.pca,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">geom.ind=</span><span class="st">"point"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">col.ind=</span><span class="st">"cos2"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">pointshape=</span><span class="dv">21</span>,<span class="at">pointsize=</span><span class="dv">2</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">col.ind=</span><span class="st">"black"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">pointshape=</span><span class="dv">16</span>,<span class="at">pointsize=</span><span class="dv">2</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">mean.point=</span><span class="cn">FALSE</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">alpha.var=</span><span class="st">"contrib"</span>,<span class="at">col.var=</span><span class="st">"contrib"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">alpha.var=</span><span class="st">"contrib"</span>,<span class="at">col.var=</span><span class="st">"cos2"</span>,</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">gradient.cols=</span><span class="fu">c</span>(<span class="st">"#00AFBB"</span>,<span class="st">"#E7B800"</span>,<span class="st">"#FC4E07"</span>),</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">labelsize=</span><span class="dv">5</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">labelsize=</span><span class="dv">3</span>,</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">repel=</span><span class="cn">TRUE</span>,</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">xlab=</span><span class="st">"PC 1"</span>,</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">ylab=</span><span class="st">"PC 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -592,7 +592,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Each point indicates an individual player so there is no need to color the points as no two points represent any initially grouped with categorical observations. However, we do see clusters of players based on their statistical performance around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explained variance from PC1 to PC2. The variables can be seen grouped by color. The color is related to its Cos2 values. These Cos2 values can be found in <a href="#fig-cos">Figure&nbsp;5</a>. The different colors indicate different Cos2 groupings, indicating which variables are best represented by the Principle Components. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constructed, <a href="#fig-biplot">Figure&nbsp;4</a>, without the Player points to give a closer look at the variables themselves.</p>
+<p>Each point in <a href="#fig-BIDot">Figure&nbsp;3</a> indicates an individual player so there is no need to color the points as no two points represent any grouped categorical observations. However, we do see clusters of players based on their statistical performance around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explained variance from PC1 to PC2. The variables can be seen grouped by color. The color is related to its Cos2 values. These Cos2 values can be found in <a href="#fig-cos">Figure&nbsp;5</a>. The different colors indicate different Cos2 groupings, indicating which variables are best represented by the Principle Components. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constructed, <a href="#fig-biplot">Figure&nbsp;4</a>, without the Player points to give a closer look at the variables themselves.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -607,7 +607,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Figure 4 is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. Our graph has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.</p>
+<p><a href="#fig-biplot">Figure&nbsp;4</a> is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. <a href="#fig-biplot">Figure&nbsp;4</a> has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -622,7 +622,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Figure 5 is a Cos2 graph and corresponds to the square cosine. This visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.</p>
+<p>The figure above is a Cos2 graph and corresponds to the square cosine. The <a href="#fig-cos">Figure&nbsp;5</a> visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -639,7 +639,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>This graph is a combination of the last 2 graphs, the biplot and the Cos2. This uses the biplot graph and then enhances it with color based on the Cos2 values. This has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before. The colors show that the best representation of variables are the blue and purple on the far right, and this is best represented by Dimension 1 or Principal Component 1. The red values are the next best representation and are best represented by Principle Component 2. It is expencted to see a higher representation around the X axis, Principle Component 1.</p>
+<p>This graph is a combination of the last 2 graphs, the biplot and the Cos2. This uses the biplot graph and then enhances it with color based on the Cos2 values. <a href="#fig-comb">Figure&nbsp;6</a> has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before. The colors show that the best representation of variables are the blue and purple on the far right, and this is best represented by Dimension 1 or Principal Component 1. The red values are the next best representation and are best represented by Principle Component 2. It is expencted to see a higher representation around the X axis, Principle Component 1.</p>
 </section>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>

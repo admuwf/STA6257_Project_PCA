@@ -114,9 +114,9 @@ Below there is a tabel describing the variables
 | Bad%     | Bad Throw Percentage | Numeric |
 | OnTgt    | On Target Throws | Numeric |
 | OnTgt%   | On Target Throws Percentage | Numeric |
-| PktTime  | Time In | Numeric |
+| PktTime  | Time In Pocket | Numeric |
 | Bltz     | Times the Player Faced Blitzes | Numeric |
-| Hrry     | Hurries | Numeric |
+| Hrry     | Times Hurried by Defense | Numeric |
 | Hits     | Times Hit by Defense During Pass| Numeric |
 | Prss     | Plays with Quaterback Pressures | Numeric |
 | Prss%    | Percentage of Plays Pressured | Numeric |
@@ -150,7 +150,7 @@ data.pca = princomp(corr_matrix)
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 ```
 
-This second plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components can be considered the most significant since they contain almost 91% of the total information of the data. We will be able to reduce down to 2 Principal Components. The next step is to reduce the data down and plot the data in a BiPlot fitting the Prinicple Components to the X and Y axis.
+This second plot is a scree plot. This is used to visualize the importance of each principal component and can be used to determine the number of components to keep. This plots the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components, seen in [@fig-Scree] can be considered the most significant since they contain almost 91% of the total information of the data. We will be able to reduce down to 2 Principal Components. The next step is to reduce the data down and plot the data in a BiPlot fitting the Prinicple Components to the X and Y axis.
 
 ```{r}
 #| label: fig-BIDot
@@ -159,19 +159,19 @@ This second plot is a scree plot. This is used to visualize the importance of ea
 
 fviz_pca_biplot(data.pca,
 geom.ind="point",
-col.ind="cos2",
-pointshape=21,pointsize=2,
+col.ind="black",
+pointshape=16,pointsize=2,
 mean.point=FALSE,
-alpha.var="contrib",col.var="contrib",
+alpha.var="contrib",col.var="cos2",
 gradient.cols=c("#00AFBB","#E7B800","#FC4E07"),
-labelsize=5,
+labelsize=3,
 repel=TRUE,
 xlab="PC 1",
 ylab="PC 2")
 ```
 
 
-Each point indicates an individual player so there is no need to color the points as no two points represent any initially grouped with categorical observations.  However, we do see clusters of players based on their statistical performance around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explained variance from PC1 to PC2. The variables can be seen grouped by color. The color is related to its Cos2 values. These Cos2 values can be found in [@fig-cos]. The different colors indicate different Cos2 groupings, indicating which variables are best represented by the Principle Components. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constructed, @fig-biplot, without the Player points to give a closer look at the variables themselves.
+Each point in [@fig-BIDot] indicates an individual player so there is no need to color the points as no two points represent any grouped categorical observations.  However, we do see clusters of players based on their statistical performance around the axis. Players who are are closer together on the X axis have more in common than Players closer together on the Y axis. This is due to the difference in explained variance from PC1 to PC2. The variables can be seen grouped by color. The color is related to its Cos2 values. These Cos2 values can be found in [@fig-cos]. The different colors indicate different Cos2 groupings, indicating which variables are best represented by the Principle Components. Since there are so many variables, it is difficult to see them in this figure. A second Bi Plot was constructed, @fig-biplot, without the Player points to give a closer look at the variables themselves.
 
 
 ```{r}
@@ -182,7 +182,7 @@ Each point indicates an individual player so there is no need to color the point
 fviz_pca_var(data.pca, col.var = "black")
 ```
 
-Figure 4 is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. Our graph has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.
+[@fig-biplot] is a biplot of the attributes. The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin. [@fig-biplot] has 2 large groups that are correlated with each other. The far right has a lot of overlap. There are also a lot of variables below the origin that are all negatively correlated together. The right have the most representation being further from the origin than others.
 
 ```{r}
 #| label: fig-cos
@@ -192,7 +192,7 @@ Figure 4 is a biplot of the attributes. The biplot can visualize the similaritie
 fviz_cos2(data.pca, choice = "var",axes = 1:2)
 ```
 
-Figure 5 is a Cos2 graph and corresponds to the square cosine. This visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.  
+The figure above is a Cos2 graph and corresponds to the square cosine. The [@fig-cos] visualization is to determine how much each variable is represented in a given component. A low value means that the variable is not perfectly represented by that component. A high value, on the other hand, means a good representation of the variable on that component. Our graph shows that we have 10 variables that have a good representation in both principal components. The graph looks like it has 4 different groups where the quality of representation drop from one group to the next. You can see at the end the last six variables have a lower quality.  
 
 ```{r}
 #| label: fig-comb
@@ -204,7 +204,7 @@ fviz_pca_var(data.pca, col.var = "cos2",
             repel = TRUE)
 ```
 
-This graph is a combination of the last 2 graphs, the biplot and the Cos2. This uses the biplot graph and then enhances it with color based on the Cos2 values. This has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before. The colors show that the best representation of variables are the blue and purple on the far right, and this is best represented by Dimension 1 or Principal Component 1. The red values are the next best representation and are best represented by Principle Component 2. It is expencted to see a higher representation around the X axis, Principle Component 1.
+This graph is a combination of the last 2 graphs, the biplot and the Cos2. This uses the biplot graph and then enhances it with color based on the Cos2 values. [@fig-comb] has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before. The colors show that the best representation of variables are the blue and purple on the far right, and this is best represented by Dimension 1 or Principal Component 1. The red values are the next best representation and are best represented by Principle Component 2. It is expencted to see a higher representation around the X axis, Principle Component 1.
 
 ### Conclusion
 
