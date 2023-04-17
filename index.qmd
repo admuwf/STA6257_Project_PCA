@@ -41,7 +41,7 @@ While our data is not related to fantasy sports, it is related to single player'
 
 Equations
 
-Normalize Data(Standardization Formula)
+Normalize Data (Standardization Formula)
 $$ x_{new} = \frac{x - {\mu}}{\sigma} $$
 
 Sample Covariance Matrix
