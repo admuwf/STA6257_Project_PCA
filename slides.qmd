@@ -1,0 +1,93 @@
+---
+title: "Principal Component Analysis"
+format: revealjs
+editor: visual
+author: Andrew Mercer, Curtis Fox, Eddie Pierce
+---
+
+## Principal Component Analysis
+
+Andrew Mercer, Curtis Fox, Eddie Pierce
+
+
+## Intoduction
+* Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data
+* Goal is to transform the original variables into a new set of uncorrelated variables called principal components
+* Used to reduce data dimensionality to find more accurate results and identify the most important factors that contribute to overall performance.
+
+## Literature Review (Maybe)
+* PCA has been applied in various fields such as remote sensing, public health, finance, sports, and climate analysis.
+*
+
+## Methods
+
+## Methods
+
+## Data
+
+## Correlation Matrix
+*
+```{r}
+our_data = read.csv("NFL_Data.csv")
+library('ggplot2')
+library('corrr')
+library('ggcorrplot')
+library('FactoMineR')
+library('factoextra')
+our_data[is.na(our_data)] = 0
+numerical_data = our_data[,2:51]
+data_normalized = scale(numerical_data)
+corr_matrix = cor(data_normalized)
+ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
+
+```
+
+## Scree Plot
+*
+```{r}
+data.pca = princomp(corr_matrix)
+fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
+
+```
+
+## Biplot
+*
+```{r}
+fviz_pca_biplot(data.pca,
+geom.ind="point",
+col.ind="black",
+pointshape=16,pointsize=2,
+mean.point=FALSE,
+alpha.var="contrib",col.var="cos2",
+gradient.cols=c("#00AFBB","#E7B800","#FC4E07"),
+labelsize=3,
+repel=TRUE,
+xlab="PC 1",
+ylab="PC 2")
+```
+
+## Biplot 2
+*
+```{r}
+fviz_pca_var(data.pca, col.var = "black")
+
+```
+
+## Cos2 Graph
+*
+```{r}
+fviz_cos2(data.pca, choice = "var",axes = 1:2)
+
+```
+
+## Combination BiPlot
+*
+```{r}
+fviz_pca_var(data.pca, col.var = "cos2",
+            gradient.cols = c("goldenrod1", "indianred",  "cornflowerblue"),
+            repel = TRUE)
+
+```
+
+## Conclusion
+* 
