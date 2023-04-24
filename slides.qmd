@@ -15,7 +15,7 @@ author: Andrew Mercer, Curtis Fox, Eddie Pierce
 ## How It Works in Simple Terms
 * The data is plotted along a normal x and y graph. The average distance to each axis is used to find the center of the data. The center is then shifted to the origin.
 
-* PC1 is the line that is fitted to the shifted data through the origin using the maximum sum of squared distances if calculated. PC2 is then found by creating a scaled perpendicular line to the fitted line through the origin. The lines are rotated to the axis.
+* PC1 is the line that is fitted to the shifted data through the origin using the maximum sum of squared distances it calculated. PC2 is then found by creating a scaled perpendicular line to the fitted line through the origin. The lines are rotated to the axis.
 
 * The linear combination of the slope of each line is used to find the eigenvalues and eigenvectors. The proportion of each variable used to create the line is the loading score.
 
