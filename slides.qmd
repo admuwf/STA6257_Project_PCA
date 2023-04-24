@@ -5,11 +5,6 @@ editor: visual
 author: Andrew Mercer, Curtis Fox, Eddie Pierce
 ---
 
-## Principal Component Analysis
-
-Andrew Mercer, Curtis Fox, Eddie Pierce
-
-
 ## Intoduction
 * Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data.
 
