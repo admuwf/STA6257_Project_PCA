@@ -335,16 +335,34 @@
 <section id="intoduction" class="slide level2">
 <h2>Intoduction</h2>
 <ul>
-<li>Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data</li>
-<li>Goal is to transform the original variables into a new set of uncorrelated variables called principal components</li>
-<li>Used to reduce data dimensionality to find more accurate results and identify the most important factors that contribute to overall performance.</li>
+<li><p>Principal Component Analysis (PCA) is a widely used statistical method for reducing the dimensionality of multivariate data.</p></li>
+<li><p>The goal is to transform the original variables into a new set of uncorrelated variables called principal components.</p></li>
+<li><p>The Principal Components are used in place of the original virbales to reduce data dimensionality to find more accurate results and identify the most important factors that contribute to overall performance.</p></li>
 </ul>
 </section>
-<section id="literature-review-maybe" class="slide level2">
-<h2>Literature Review (Maybe)</h2>
+<section id="how-it-works-in-simple-terms" class="slide level2">
+<h2>How It Works in Simple Terms</h2>
 <ul>
-<li>PCA has been applied in various fields such as remote sensing, public health, finance, sports, and climate analysis.</li>
-<li></li>
+<li><p>The data is plotted along a normal x and y graph. The average distance to each axis is used to find the center of the data. The center is then shifted to the origin.</p></li>
+<li><p>PC1 is the line that is fitted to the shifted data through the origin using the maximum sum of squared distances if calculated. PC2 is then found by creating a scaled perpendicular line to the fitted line through the origin. The lines are rotated to the axis.</p></li>
+<li><p>The linear combination of the slope of each line is used to find the eigenvalues and eigenvectors. The proportion of each variable used to create the line is known as the loading score.</p></li>
+</ul>
+</section>
+<section id="what-you-need-for-pca" class="slide level2">
+<h2>What You Need for PCA</h2>
+<ul>
+<li><p>Your data needs to be Numeric.</p></li>
+<li><p>Multiple variables, 4 or more.</p></li>
+<li><p>A general understanding of your data and variables.</p></li>
+</ul>
+</section>
+<section id="literature-review" class="slide level2">
+<h2>Literature Review</h2>
+<ul>
+<li><p>PCA has been applied in various fields such as remote sensing, public health, finance, sports, and climate analysis.</p></li>
+<li><p>Watnik, Mitchell, and Richard A Levine. 2001. “NFL Y2K PCA.” Journal of Statistics Education 9 (3).</p></li>
+<li><p>Jones, Lewis. 2016. “Modeling NFL Quarterback Success with College Data.” PhD thesis, University of Georgia.</p></li>
+<li><p>We found a shared interest in individual Quarterback performance across the National Football League. The data was numeric with multiple variables and we had a strong understanding of the data.</p></li>
 </ul>
 </section>
 <section id="methods" class="slide level2">
@@ -358,9 +376,6 @@
 </section>
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
-<ul>
-<li></li>
-</ul>
 
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
 <section id="scree-plot" class="slide level2">
