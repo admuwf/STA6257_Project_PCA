@@ -10,7 +10,7 @@ author: Andrew Mercer, Curtis Fox, Eddie Pierce
 
 * The goal is to transform the original variables into a new set of uncorrelated variables called principal components.
 
-* The Principal Components are used in place of the original virbales to reduce data dimensionality to find more accurate results and identify the most important factors that contribute to overall performance.
+* The Principal Components are used in place of the original variables to reduce data dimensionality to find more accurate results and identify the most important factors that contribute to overall performance.
 
 ## How It Works in Simple Terms
 * The data is plotted along a normal x and y graph. The average distance to each axis is used to find the center of the data. The center is then shifted to the origin.
