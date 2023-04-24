@@ -26,7 +26,7 @@ author: Andrew Mercer, Curtis Fox, Eddie Pierce
 
 * Multiple variables, 4 or more.
 
-* A Pre-Determined Principle Component Cutoff Point
+* A Pre-Determined Principal Component Cutoff Point
 
 ## Literature Review
 * PCA has been applied in various fields such as remote sensing, public health, finance, sports, and climate analysis.
