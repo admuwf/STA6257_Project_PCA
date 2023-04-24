@@ -74,7 +74,7 @@ ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
 
 ```
 
-
+This table displays the correlation coefficients between the variables in a data set. The data in this correlation matrix can now be passed through the PCA function and graphed to show the Principal Components.
 
 ## Scree Plot
 *
@@ -83,6 +83,9 @@ data.pca = princomp(corr_matrix)
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 
 ```
+
+The Scree plot shows the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components, can be considered the most significant since they contain almost 91% of the total information of the data. 
+
 
 ## Biplot
 *
@@ -100,6 +103,8 @@ xlab="PC 1",
 ylab="PC 2")
 ```
 
+
+
 ## Biplot 2
 *
 ```{r}
@@ -107,12 +112,16 @@ fviz_pca_var(data.pca, col.var = "black")
 
 ```
 
+The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot's origin.
+
 ## Cos2 Graph
 *
 ```{r}
 fviz_cos2(data.pca, choice = "var",axes = 1:2)
 
 ```
+
+This visualization is to determine how much each variable is represented in a given component. A high value means that the variable is highly represented by that component.
 
 ## Combination BiPlot
 *
@@ -122,6 +131,8 @@ fviz_pca_var(data.pca, col.var = "cos2",
             repel = TRUE)
 
 ```
+
+This graph uses the biplot graph and then enhances it with color based on the Cos2 values. The figure has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before.
 
 ## Conclusion
 In conclusion, using the 2022 season data for the National Football League we were able to reduce dimensionality to 2 Principal Components. We used a Scree Plot to observe that our first 2 Principal Components explained 90.9% of the variance. This was 0.9% greater than our pre-determined cutoff.

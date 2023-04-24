@@ -436,14 +436,16 @@
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>This table displays the correlation coefficients between the variables in a data set. The data in this correlation matrix can now be passed through the PCA function and graphed to show the Principal Components.</p>
+</section>
 <section id="scree-plot" class="slide level2">
 <h2>Scree Plot</h2>
 <ul>
 <li></li>
 </ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><p>The Scree plot shows the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components, can be considered the most significant since they contain almost 91% of the total information of the data.</p>
+</section>
 <section id="biplot" class="slide level2">
 <h2>Biplot</h2>
 <ul>
@@ -457,21 +459,24 @@
 <li></li>
 </ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><p>The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin.</p>
+</section>
 <section id="cos2-graph" class="slide level2">
 <h2>Cos2 Graph</h2>
 <ul>
 <li></li>
 </ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p>This visualization is to determine how much each variable is represented in a given component. A high value means that the variable is highly represented by that component.</p>
+</section>
 <section id="combination-biplot" class="slide level2">
 <h2>Combination BiPlot</h2>
 <ul>
 <li></li>
 </ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><p>This graph uses the biplot graph and then enhances it with color based on the Cos2 values. The figure has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before.</p>
+</section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
 <p>In conclusion, using the 2022 season data for the National Football League we were able to reduce dimensionality to 2 Principal Components. We used a Scree Plot to observe that our first 2 Principal Components explained 90.9% of the variance. This was 0.9% greater than our pre-determined cutoff.</p>
