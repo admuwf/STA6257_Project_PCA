@@ -367,11 +367,12 @@
 <li>Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data.</li>
 <li>A PCA analysis allows us to reduce the number of variables in a datase</li>
 <li>First step is to normalize the data using equation 1</li>
-<li>Second step is to calculate the covariance matrix in the data set using equation 2</li>
+<li>Second step is to calculate the covariance matrix in the data set using equation 2 <span class="math display">\[ x_{new} = \frac{x - {\mu}}{\sigma}  \tag{1}\]</span></li>
 </ul>
+<p><span class="math display">\[Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T\tag{2}\]</span></p>
 </section>
 <section id="methods-continued" class="slide level2">
-<h2>Methods continued</h2>
+<h2>Methods Continued</h2>
 <ul>
 <li>We then need to find the eigenvalues and eigenvectors using equations 3 and 4</li>
 <li>Plot the average measurement of each variable to the origin</li>
@@ -379,10 +380,15 @@
 <li>PC2 is found using a perpendicular line to PC1 where it meets the origin.</li>
 <li>This process is continued until all variables have been completed or until a pre-determined number of components have been reached</li>
 </ul>
+<p><span class="math display">\[det(A - \lambda I) = 0 \tag{3}\]</span> <span class="math display">\[(A - \lambda I) \cdot v = 0 \tag{4}\]</span></p>
 </section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
-<p>2022 National Football League Quarterback Passing Data https://www.pro-football-reference.com/years/2022/passing.htm</p>
+<ul>
+<li>Explored NFL passing statistics from the 2022-2023 calendar year</li>
+<li>Analyzed over 50 variables in the data set</li>
+<li>All variable types besides QB name were numeric</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <table>
@@ -443,52 +449,48 @@
 </div>
 </div>
 </section>
-<section id="data-continued" class="slide level2">
-<h2>Data Continued</h2>
-</section>
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>This table displays the correlation coefficients between the variables in a data set. The data in this correlation matrix can now be passed through the PCA function and graphed to show the Principal Components.</p>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><ul>
+<li>Matrix of the correlations between of the variables in the data. Deep red is positively correlated, and deep blue is negatively correlated.</li>
+</ul>
 </section>
 <section id="scree-plot" class="slide level2">
 <h2>Scree Plot</h2>
-<ul>
-<li></li>
-</ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><p>The Scree plot shows the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components, can be considered the most significant since they contain almost 91% of the total information of the data.</p>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><ul>
+<li>This shows the variation explained by each principal component in descending order.</li>
+</ul>
 </section>
 <section id="biplot" class="slide level2">
 <h2>Biplot</h2>
-<ul>
-<li></li>
-</ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><ul>
+<li>This biplot shows how each principal component is composed of each attribute from the data.</li>
+<li>The points are each individual player, and the colors are the Cos2 values.</li>
+</ul>
+</section>
 <section id="biplot-2" class="slide level2">
 <h2>Biplot 2</h2>
-<ul>
-<li></li>
-</ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><p>The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot’s origin.</p>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
+<li>This biplot is a closer look of the impact of each attribute on the principal components.</li>
+</ul>
 </section>
 <section id="cos2-graph" class="slide level2">
 <h2>Cos2 Graph</h2>
-<ul>
-<li></li>
-</ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p>This visualization is to determine how much each variable is represented in a given component. A high value means that the variable is highly represented by that component.</p>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><ul>
+<li>This graph shows the Cos2 values of each attribute.</li>
+</ul>
 </section>
 <section id="combination-biplot" class="slide level2">
 <h2>Combination BiPlot</h2>
-<ul>
-<li></li>
-</ul>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><p>This graph uses the biplot graph and then enhances it with color based on the Cos2 values. The figure has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before.</p>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><ul>
+<li>This graph is to highlight more on the Cos2 values from before, as a comparison.</li>
+</ul>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>

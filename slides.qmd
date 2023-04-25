@@ -42,18 +42,26 @@ author: Andrew Mercer, Curtis Fox, Eddie Pierce
 * A PCA analysis allows us to reduce the number of variables in a datase
 * First step is to normalize the data using equation 1 
 * Second step is to calculate the covariance matrix in the data set using equation 2
+$$ x_{new} = \frac{x - {\mu}}{\sigma}  \tag{1}$$
+
+$$Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T\tag{2}$$
 
 
-## Methods continued
+
+## Methods Continued
 * We then need to find the eigenvalues and eigenvectors using equations 3 and 4
 * Plot the average measurement of each variable to the origin
 * The PCA function fits a line to the data using the maximum sum of squared distances to determine the first Principal Component
 * PC2 is found using a perpendicular line to PC1 where it meets the origin.
 * This process is continued until all variables have been completed or until a pre-determined number of components have been reached
 
-## Data
+$$det(A - \lambda I) = 0 \tag{3}$$
+$$(A - \lambda I) \cdot v = 0 \tag{4}$$
 
-2022 National Football League Quarterback Passing Data https://www.pro-football-reference.com/years/2022/passing.htm
+## Data
+* Explored NFL passing statistics from the 2022-2023 calendar year
+* Analyzed over 50 variables in the data set 
+* All variable types besides QB name were numeric
 
 ```{r}
 our_data = read.csv("NFL_Data.csv")
@@ -62,11 +70,6 @@ knitr::kable(
   our_data[1:3, 1:10], caption = 'Original 2022 NFL Data.'
 )
 ```
-
-## Data Continued
-
-
-
 
 ## Correlation Matrix
 ```{r}
@@ -84,21 +87,18 @@ ggcorrplot(corr_matrix, tl.cex = 5,tl.srt = 45)
 
 ```
 
-This table displays the correlation coefficients between the variables in a data set. The data in this correlation matrix can now be passed through the PCA function and graphed to show the Principal Components.
+* Matrix of the correlations between of the variables in the data. Deep red is positively correlated, and deep blue is negatively correlated. 
 
 ## Scree Plot
-*
 ```{r}
 data.pca = princomp(corr_matrix)
 fviz_eig(data.pca, addlabels = TRUE) #this is a scree plot of the principal component
 
 ```
 
-The Scree plot shows the eigenvalues each as a bar graph in a downward curve, from highest to lowest. As originally hoped, the first two components, can be considered the most significant since they contain almost 91% of the total information of the data. 
-
+* This shows the variation explained by each principal component in descending order.
 
 ## Biplot
-*
 ```{r}
 fviz_pca_biplot(data.pca,
 geom.ind="point",
@@ -113,36 +113,33 @@ xlab="PC 1",
 ylab="PC 2")
 ```
 
-
+* This biplot shows how each principal component is composed of each attribute from the data. 
+* The points are each individual player, and the colors are the Cos2 values.
 
 ## Biplot 2
-*
 ```{r}
 fviz_pca_var(data.pca, col.var = "black")
 
 ```
 
-The biplot can visualize the similarities and dissimilarities between the samples, and further shows the impact of each attribute on each principal component. The biplot observes three key pieces of information: all the variables that are grouped together are positively correlated to each other, the higher the distance between the variable and the origin, the better represented that variable is, and variables that are negatively correlated are displayed to the opposite sides of the biplot's origin.
+* This biplot is a closer look of the impact of each attribute on the principal components. 
 
 ## Cos2 Graph
-*
 ```{r}
 fviz_cos2(data.pca, choice = "var",axes = 1:2)
 
 ```
 
-This visualization is to determine how much each variable is represented in a given component. A high value means that the variable is highly represented by that component.
+* This graph shows the Cos2 values of each attribute.
 
 ## Combination BiPlot
-*
 ```{r}
 fviz_pca_var(data.pca, col.var = "cos2",
             gradient.cols = c("goldenrod1", "indianred",  "cornflowerblue"),
             repel = TRUE)
 
 ```
-
-This graph uses the biplot graph and then enhances it with color based on the Cos2 values. The figure has 3 colors, but you can see them start to blend in areas where the Cos2 values are similar between the groups we talked about before.
+* This graph is to highlight more on the Cos2 values from before, as a comparison.
 
 ## Conclusion
 In conclusion, using the 2022 season data for the National Football League we were able to reduce dimensionality to 2 Principal Components. We used a Scree Plot to observe that our first 2 Principal Components explained 90.9% of the variance. This was 0.9% greater than our pre-determined cutoff.
