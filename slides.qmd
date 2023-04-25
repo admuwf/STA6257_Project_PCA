@@ -39,24 +39,27 @@ author: Andrew Mercer, Curtis Fox, Eddie Pierce
 
 ## Methods 
 * Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data.
-* A PCA analysis allows us to reduce the number of variables in a datase
+* A PCA analysis allows us to reduce the number of variables in a dataset
 * First step is to normalize the data using equation 1 
-* Second step is to calculate the covariance matrix in the data set using equation 2
+
 $$ x_{new} = \frac{x - {\mu}}{\sigma}  \tag{1}$$
+
+## Methods Continued
+* Second step is to calculate the covariance matrix in the data set using equation 2
+* We then need to find the eigenvalues and eigenvectors using equations 3 and 4
+* Plot the average measurement of each variable to the origin
 
 $$Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T\tag{2}$$
 
 
-
+$$det(A - \lambda I) = 0 \tag{3}$$
+$$(A - \lambda I) \cdot v = 0 \tag{4}$$
 ## Methods Continued
-* We then need to find the eigenvalues and eigenvectors using equations 3 and 4
-* Plot the average measurement of each variable to the origin
 * The PCA function fits a line to the data using the maximum sum of squared distances to determine the first Principal Component
 * PC2 is found using a perpendicular line to PC1 where it meets the origin.
 * This process is continued until all variables have been completed or until a pre-determined number of components have been reached
 
-$$det(A - \lambda I) = 0 \tag{3}$$
-$$(A - \lambda I) \cdot v = 0 \tag{4}$$
+
 
 ## Data
 * Explored NFL passing statistics from the 2022-2023 calendar year
