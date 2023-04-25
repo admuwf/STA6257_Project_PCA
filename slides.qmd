@@ -37,9 +37,19 @@ author: Andrew Mercer, Curtis Fox, Eddie Pierce
 
 * We found a shared interest in individual Quarterback performance across the National Football League. The data was numeric with multiple variables and we had a strong understanding of the data. 
 
-## Methods
+## Methods 
+* Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data.
+* A PCA analysis allows us to reduce the number of variables in a datase
+* First step is to normalize the data using equation 1 
+* Second step is to calculate the covariance matrix in the data set using equation 2
 
-## Methods
+
+## Methods continued
+* We then need to find the eigenvalues and eigenvectors using equations 3 and 4
+* Plot the average measurement of each variable to the origin
+* The PCA function fits a line to the data using the maximum sum of squared distances to determine the first Principal Component
+* PC2 is found using a perpendicular line to PC1 where it meets the origin.
+* This process is continued until all variables have been completed or until a pre-determined number of components have been reached
 
 ## Data
 
