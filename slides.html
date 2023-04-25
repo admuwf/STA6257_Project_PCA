@@ -375,7 +375,6 @@
 <ul>
 <li>Second step is to calculate the covariance matrix in the data set using equation 2.</li>
 <li>We then need to find the eigenvalues and eigenvectors using equations 3 and 4.</li>
-<li>Plot the average measurement of each variable to the origin.</li>
 </ul>
 <p><span class="math display">\[Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T\tag{2}\]</span></p>
 <p><span class="math display">\[det(A - \lambda I) = 0 \tag{3}\]</span> <span class="math display">\[(A - \lambda I) \cdot v = 0 \tag{4}\]</span></p>
@@ -383,10 +382,10 @@
 <section id="methods-continued-1" class="slide level2">
 <h2>Methods Continued</h2>
 <ul>
+<li>Plot the average measurement of each variable to the origin.</li>
 <li>The PCA function fits a line to the data using the maximum sum of squared distances to determine the first Principal Component.</li>
 <li>PC2 is found using a perpendicular line to PC1 where it meets the origin.</li>
-<li>This process is continued until all variables have been completed or until a pre-determined number of components have been reached.</li>
-<li>For our analysis we pre-determined that the cut-off would be 90% variation explained.</li>
+<li>This process is continued until all variables have been completed or until a pre-determined number of components have been reached. For our analysis we pre-determined that the cut-off would be 90% variation explained.</li>
 </ul>
 </section>
 <section id="data" class="slide level2">
