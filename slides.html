@@ -349,7 +349,7 @@
 <ul>
 <li><p>Your data needs to be Numeric.</p></li>
 <li><p>Multiple variables, 4 or more.</p></li>
-<li><p>A Pre-Determined Principal Component Cutoff Point</p></li>
+<li><p>A Pre-Determined Principal Component Cutoff Point.</p></li>
 </ul>
 </section>
 <section id="literature-review" class="slide level2">
@@ -365,27 +365,36 @@
 <h2>Methods</h2>
 <ul>
 <li>Principal Component Analysis (PCA) is an unsupervised machine learning technique for reducing the dimensionality of multivariate data.</li>
-<li>A PCA analysis allows us to reduce the number of variables in a dataset</li>
-<li>First step is to normalize the data using equation 1</li>
+<li>A PCA analysis allows us to reduce the number of variables in a dataset.</li>
+<li>First step is to normalize the data using equation 1.</li>
 </ul>
 <p><span class="math display">\[ x_{new} = \frac{x - {\mu}}{\sigma}  \tag{1}\]</span></p>
 </section>
 <section id="methods-continued" class="slide level2">
 <h2>Methods Continued</h2>
 <ul>
-<li>Second step is to calculate the covariance matrix in the data set using equation 2</li>
-<li>We then need to find the eigenvalues and eigenvectors using equations 3 and 4</li>
-<li>Plot the average measurement of each variable to the origin</li>
+<li>Second step is to calculate the covariance matrix in the data set using equation 2.</li>
+<li>We then need to find the eigenvalues and eigenvectors using equations 3 and 4.</li>
+<li>Plot the average measurement of each variable to the origin.</li>
 </ul>
 <p><span class="math display">\[Cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_{i}-\bar{X})(Y_{i}-\bar{Y})^T\tag{2}\]</span></p>
-<p><span class="math display">\[det(A - \lambda I) = 0 \tag{3}\]</span> <span class="math display">\[(A - \lambda I) \cdot v = 0 \tag{4}\]</span> ## Methods Continued * The PCA function fits a line to the data using the maximum sum of squared distances to determine the first Principal Component * PC2 is found using a perpendicular line to PC1 where it meets the origin. * This process is continued until all variables have been completed or until a pre-determined number of components have been reached</p>
+<p><span class="math display">\[det(A - \lambda I) = 0 \tag{3}\]</span> <span class="math display">\[(A - \lambda I) \cdot v = 0 \tag{4}\]</span></p>
+</section>
+<section id="methods-continued-1" class="slide level2">
+<h2>Methods Continued</h2>
+<ul>
+<li>The PCA function fits a line to the data using the maximum sum of squared distances to determine the first Principal Component.</li>
+<li>PC2 is found using a perpendicular line to PC1 where it meets the origin.</li>
+<li>This process is continued until all variables have been completed or until a pre-determined number of components have been reached.</li>
+<li>For our analysis we pre-determined that the cut-off would be 90% variation explained.</li>
+</ul>
 </section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <ul>
-<li>Explored NFL passing statistics from the 2022-2023 calendar year</li>
-<li>Analyzed over 50 variables in the data set</li>
-<li>All variable types besides QB name were numeric</li>
+<li>Explored NFL passing statistics from the 2022-2023 calendar year.</li>
+<li>Analyzed over 50 variables in the dataset.</li>
+<li>All variable types besides QB name were numeric.</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
